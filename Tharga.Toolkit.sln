@@ -1,0 +1,185 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit", "Tharga.Toolkit\Tharga.Toolkit.csproj", "{8D840036-39ED-42BE-B980-D571D59B8E47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit.Console", "Tharga.Toolkit.Console\Tharga.Toolkit.Console.csproj", "{B8BD1635-042F-4EB3-8018-5CEB7302C31B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_External", "_External", "{45DBFF41-E949-4200-B49B-5A1EEFCCCA80}"
+	ProjectSection(SolutionItems) = preProject
+		_External\NuGet.exe = _External\NuGet.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MongoDB", "MongoDB", "{DB5446A1-430C-4A89-AD80-F72362A1FADE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit.ServerStorage", "Tharga.Toolkit.ServerStorage\Tharga.Toolkit.ServerStorage.csproj", "{79693E0B-6129-403A-AC16-C58410D7246A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit.LocalStorage", "Tharga.Toolkit.LocalStorage\Tharga.Toolkit.LocalStorage.csproj", "{3387E4B5-CE13-4D7C-9975-12C51ED9092E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit.StorageConsole", "Tharga.Toolkit.StorageConsole\Tharga.Toolkit.StorageConsole.csproj", "{CAFE0D3E-800B-44A6-BE8A-764C4E8616E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Local", "Local", "{47CD5FFD-D135-4DAB-B16A-D4ACADC53CBC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{E7857B41-0A0F-40BC-B5D8-68D9D58A4DDD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{70366613-A75C-46B8-937E-1EA02EC681EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBusiness", "Sample\SampleBusiness\SampleBusiness.csproj", "{2D1FE4ED-2166-4015-8306-165FFB648C74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleConsoleHost", "Sample\SampleConsoleHost\SampleConsoleHost.csproj", "{86913F1B-5BD8-4AB5-89BC-0217CE51247A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleConsoleClient", "Sample\SampleConsoleClient\SampleConsoleClient.csproj", "{F9BEFC8C-C1E3-4C53-8A20-A3EDDF3EEDD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWpfClient", "Sample\SampleWpfClient\SampleWpfClient.csproj", "{187E8D5C-E2DA-48C5-ACD7-F7E37E87ADAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleDataTransfer", "Sample\SampleDataTransfer\SampleDataTransfer.csproj", "{D725279F-9FD6-42EF-91D2-FEE3A5A87787}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit.Storage", "Tharga.Toolkit.Storage\Tharga.Toolkit.Storage.csproj", "{F9699C87-C488-492D-8F84-01E41EDD9759}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{FDC019FF-F230-4B82-8C81-158BE5C0AA7E}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet\BuildAll.bat = NuGet\BuildAll.bat
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 12
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://096-731-302.local:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Tharga.Toolkit\\Tharga.Toolkit.csproj
+		SccProjectName1 = Tharga.Toolkit
+		SccLocalPath1 = Tharga.Toolkit
+		SccProjectUniqueName2 = Tharga.Toolkit.Console\\Tharga.Toolkit.Console.csproj
+		SccProjectName2 = Tharga.Toolkit.Console
+		SccLocalPath2 = Tharga.Toolkit.Console
+		SccProjectUniqueName3 = Tharga.Toolkit.ServerStorage\\Tharga.Toolkit.ServerStorage.csproj
+		SccProjectTopLevelParentUniqueName3 = Tharga.Toolkit.sln
+		SccProjectName3 = Tharga.Toolkit.ServerStorage
+		SccLocalPath3 = Tharga.Toolkit.ServerStorage
+		SccProjectUniqueName4 = Tharga.Toolkit.LocalStorage\\Tharga.Toolkit.LocalStorage.csproj
+		SccProjectTopLevelParentUniqueName4 = Tharga.Toolkit.sln
+		SccProjectName4 = Tharga.Toolkit.LocalStorage
+		SccLocalPath4 = Tharga.Toolkit.LocalStorage
+		SccProjectUniqueName5 = Tharga.Toolkit.StorageConsole\\Tharga.Toolkit.StorageConsole.csproj
+		SccProjectTopLevelParentUniqueName5 = Tharga.Toolkit.sln
+		SccProjectName5 = Tharga.Toolkit.StorageConsole
+		SccLocalPath5 = Tharga.Toolkit.StorageConsole
+		SccProjectUniqueName6 = Sample\\SampleBusiness\\SampleBusiness.csproj
+		SccProjectTopLevelParentUniqueName6 = Tharga.Toolkit.sln
+		SccProjectName6 = Sample/SampleBusiness
+		SccLocalPath6 = Sample\\SampleBusiness
+		SccProjectUniqueName7 = Sample\\SampleConsoleHost\\SampleConsoleHost.csproj
+		SccProjectTopLevelParentUniqueName7 = Tharga.Toolkit.sln
+		SccProjectName7 = Sample/SampleConsoleHost
+		SccLocalPath7 = Sample\\SampleConsoleHost
+		SccProjectUniqueName8 = Sample\\SampleConsoleClient\\SampleConsoleClient.csproj
+		SccProjectTopLevelParentUniqueName8 = Tharga.Toolkit.sln
+		SccProjectName8 = Sample/SampleConsoleClient
+		SccLocalPath8 = Sample\\SampleConsoleClient
+		SccProjectUniqueName9 = Sample\\SampleWpfClient\\SampleWpfClient.csproj
+		SccProjectTopLevelParentUniqueName9 = Tharga.Toolkit.sln
+		SccProjectName9 = Sample/SampleWpfClient
+		SccLocalPath9 = Sample\\SampleWpfClient
+		SccProjectUniqueName10 = Sample\\SampleDataTransfer\\SampleDataTransfer.csproj
+		SccProjectTopLevelParentUniqueName10 = Tharga.Toolkit.sln
+		SccProjectName10 = Sample/SampleDataTransfer
+		SccLocalPath10 = Sample\\SampleDataTransfer
+		SccProjectUniqueName11 = Tharga.Toolkit.Storage\\Tharga.Toolkit.Storage.csproj
+		SccProjectTopLevelParentUniqueName11 = Tharga.Toolkit.sln
+		SccProjectName11 = Tharga.Toolkit.Storage
+		SccLocalPath11 = Tharga.Toolkit.Storage
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D840036-39ED-42BE-B980-D571D59B8E47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D840036-39ED-42BE-B980-D571D59B8E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D840036-39ED-42BE-B980-D571D59B8E47}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8D840036-39ED-42BE-B980-D571D59B8E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D840036-39ED-42BE-B980-D571D59B8E47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D840036-39ED-42BE-B980-D571D59B8E47}.Release|x86.ActiveCfg = Release|Any CPU
+		{B8BD1635-042F-4EB3-8018-5CEB7302C31B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8BD1635-042F-4EB3-8018-5CEB7302C31B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8BD1635-042F-4EB3-8018-5CEB7302C31B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B8BD1635-042F-4EB3-8018-5CEB7302C31B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8BD1635-042F-4EB3-8018-5CEB7302C31B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8BD1635-042F-4EB3-8018-5CEB7302C31B}.Release|x86.ActiveCfg = Release|Any CPU
+		{79693E0B-6129-403A-AC16-C58410D7246A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79693E0B-6129-403A-AC16-C58410D7246A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79693E0B-6129-403A-AC16-C58410D7246A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{79693E0B-6129-403A-AC16-C58410D7246A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79693E0B-6129-403A-AC16-C58410D7246A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79693E0B-6129-403A-AC16-C58410D7246A}.Release|x86.ActiveCfg = Release|Any CPU
+		{3387E4B5-CE13-4D7C-9975-12C51ED9092E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3387E4B5-CE13-4D7C-9975-12C51ED9092E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3387E4B5-CE13-4D7C-9975-12C51ED9092E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3387E4B5-CE13-4D7C-9975-12C51ED9092E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3387E4B5-CE13-4D7C-9975-12C51ED9092E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3387E4B5-CE13-4D7C-9975-12C51ED9092E}.Release|x86.ActiveCfg = Release|Any CPU
+		{CAFE0D3E-800B-44A6-BE8A-764C4E8616E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAFE0D3E-800B-44A6-BE8A-764C4E8616E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAFE0D3E-800B-44A6-BE8A-764C4E8616E5}.Debug|x86.ActiveCfg = Debug|x86
+		{CAFE0D3E-800B-44A6-BE8A-764C4E8616E5}.Debug|x86.Build.0 = Debug|x86
+		{CAFE0D3E-800B-44A6-BE8A-764C4E8616E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAFE0D3E-800B-44A6-BE8A-764C4E8616E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAFE0D3E-800B-44A6-BE8A-764C4E8616E5}.Release|x86.ActiveCfg = Release|x86
+		{CAFE0D3E-800B-44A6-BE8A-764C4E8616E5}.Release|x86.Build.0 = Release|x86
+		{2D1FE4ED-2166-4015-8306-165FFB648C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1FE4ED-2166-4015-8306-165FFB648C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1FE4ED-2166-4015-8306-165FFB648C74}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2D1FE4ED-2166-4015-8306-165FFB648C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1FE4ED-2166-4015-8306-165FFB648C74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D1FE4ED-2166-4015-8306-165FFB648C74}.Release|x86.ActiveCfg = Release|Any CPU
+		{86913F1B-5BD8-4AB5-89BC-0217CE51247A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86913F1B-5BD8-4AB5-89BC-0217CE51247A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86913F1B-5BD8-4AB5-89BC-0217CE51247A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{86913F1B-5BD8-4AB5-89BC-0217CE51247A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86913F1B-5BD8-4AB5-89BC-0217CE51247A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86913F1B-5BD8-4AB5-89BC-0217CE51247A}.Release|x86.ActiveCfg = Release|Any CPU
+		{F9BEFC8C-C1E3-4C53-8A20-A3EDDF3EEDD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9BEFC8C-C1E3-4C53-8A20-A3EDDF3EEDD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9BEFC8C-C1E3-4C53-8A20-A3EDDF3EEDD5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F9BEFC8C-C1E3-4C53-8A20-A3EDDF3EEDD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9BEFC8C-C1E3-4C53-8A20-A3EDDF3EEDD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9BEFC8C-C1E3-4C53-8A20-A3EDDF3EEDD5}.Release|x86.ActiveCfg = Release|Any CPU
+		{187E8D5C-E2DA-48C5-ACD7-F7E37E87ADAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{187E8D5C-E2DA-48C5-ACD7-F7E37E87ADAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{187E8D5C-E2DA-48C5-ACD7-F7E37E87ADAE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{187E8D5C-E2DA-48C5-ACD7-F7E37E87ADAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{187E8D5C-E2DA-48C5-ACD7-F7E37E87ADAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{187E8D5C-E2DA-48C5-ACD7-F7E37E87ADAE}.Release|x86.ActiveCfg = Release|Any CPU
+		{D725279F-9FD6-42EF-91D2-FEE3A5A87787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D725279F-9FD6-42EF-91D2-FEE3A5A87787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D725279F-9FD6-42EF-91D2-FEE3A5A87787}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D725279F-9FD6-42EF-91D2-FEE3A5A87787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D725279F-9FD6-42EF-91D2-FEE3A5A87787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D725279F-9FD6-42EF-91D2-FEE3A5A87787}.Release|x86.ActiveCfg = Release|Any CPU
+		{F9699C87-C488-492D-8F84-01E41EDD9759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9699C87-C488-492D-8F84-01E41EDD9759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9699C87-C488-492D-8F84-01E41EDD9759}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F9699C87-C488-492D-8F84-01E41EDD9759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9699C87-C488-492D-8F84-01E41EDD9759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9699C87-C488-492D-8F84-01E41EDD9759}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{47CD5FFD-D135-4DAB-B16A-D4ACADC53CBC} = {DB5446A1-430C-4A89-AD80-F72362A1FADE}
+		{E7857B41-0A0F-40BC-B5D8-68D9D58A4DDD} = {DB5446A1-430C-4A89-AD80-F72362A1FADE}
+		{F9699C87-C488-492D-8F84-01E41EDD9759} = {DB5446A1-430C-4A89-AD80-F72362A1FADE}
+		{3387E4B5-CE13-4D7C-9975-12C51ED9092E} = {47CD5FFD-D135-4DAB-B16A-D4ACADC53CBC}
+		{CAFE0D3E-800B-44A6-BE8A-764C4E8616E5} = {47CD5FFD-D135-4DAB-B16A-D4ACADC53CBC}
+		{79693E0B-6129-403A-AC16-C58410D7246A} = {E7857B41-0A0F-40BC-B5D8-68D9D58A4DDD}
+		{2D1FE4ED-2166-4015-8306-165FFB648C74} = {70366613-A75C-46B8-937E-1EA02EC681EE}
+		{86913F1B-5BD8-4AB5-89BC-0217CE51247A} = {70366613-A75C-46B8-937E-1EA02EC681EE}
+		{F9BEFC8C-C1E3-4C53-8A20-A3EDDF3EEDD5} = {70366613-A75C-46B8-937E-1EA02EC681EE}
+		{187E8D5C-E2DA-48C5-ACD7-F7E37E87ADAE} = {70366613-A75C-46B8-937E-1EA02EC681EE}
+		{D725279F-9FD6-42EF-91D2-FEE3A5A87787} = {70366613-A75C-46B8-937E-1EA02EC681EE}
+	EndGlobalSection
+EndGlobal

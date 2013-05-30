@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F9BEFC8C-C1E3-4C53-8A20-A3EDDF3EEDD5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SampleConsoleClient</RootNamespace>
+    <AssemblyName>SampleConsoleClient</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MongoDB.Bson, Version=1.7.0.4714, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Tharga.Toolkit.Test\bin\Debug\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tharga.Toolkit.MongoDB, Version=1.0.4750.30016, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Tharga.Toolkit.StorageConsole\bin\Debug\Tharga.Toolkit.MongoDB.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Command\CustomerCommand.cs" />
+    <Compile Include="Command\CustomerCreateCommand.cs" />
+    <Compile Include="Command\CustomerExtensions.cs" />
+    <Compile Include="Command\CustomerMoveCommand.cs" />
+    <Compile Include="Command\CustomerRenameCommand.cs" />
+    <Compile Include="Command\ProductRenameCommand.cs" />
+    <Compile Include="Command\ProductCommand.cs" />
+    <Compile Include="Command\ProductCreateCommand.cs" />
+    <Compile Include="Command\RealmCommand.cs" />
+    <Compile Include="Command\RealmCreateCommand.cs" />
+    <Compile Include="Command\UserCommand.cs" />
+    <Compile Include="Command\UserCreateCommand.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Tharga.Toolkit.ServerStorage\Tharga.Toolkit.ServerStorage.csproj">
+      <Project>{79693E0B-6129-403A-AC16-C58410D7246A}</Project>
+      <Name>Tharga.Toolkit.ServerStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tharga.Toolkit.Storage\Tharga.Toolkit.Storage.csproj">
+      <Project>{F9699C87-C488-492D-8F84-01E41EDD9759}</Project>
+      <Name>Tharga.Toolkit.Storage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleBusiness\SampleBusiness.csproj">
+      <Project>{2D1FE4ED-2166-4015-8306-165FFB648C74}</Project>
+      <Name>SampleBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tharga.Toolkit.Console\Tharga.Toolkit.Console.csproj">
+      <Project>{b8bd1635-042f-4eb3-8018-5ceb7302c31b}</Project>
+      <Name>Tharga.Toolkit.Console</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tharga.Toolkit.LocalStorage\Tharga.Toolkit.LocalStorage.csproj">
+      <Project>{3387E4B5-CE13-4D7C-9975-12C51ED9092E}</Project>
+      <Name>Tharga.Toolkit.LocalStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tharga.Toolkit.StorageConsole\Tharga.Toolkit.StorageConsole.csproj">
+      <Project>{cafe0d3e-800b-44a6-be8a-764c4e8616e5}</Project>
+      <Name>Tharga.Toolkit.StorageConsole</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleDataTransfer\SampleDataTransfer.csproj">
+      <Project>{D725279F-9FD6-42EF-91D2-FEE3A5A87787}</Project>
+      <Name>SampleDataTransfer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2D1FE4ED-2166-4015-8306-165FFB648C74}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SampleBusiness</RootNamespace>
+    <AssemblyName>SampleBusiness</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\packages\mongocsharpdriver.1.7\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector">
+      <HintPath>..\..\packages\SimpleInjector.1.6.0.12319\lib\net35\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Extensions">
+      <HintPath>..\..\packages\SimpleInjector.Extensions.1.6.0.12319\lib\net35\SimpleInjector.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\GenericRealmBusiness.cs" />
+    <Compile Include="Business\RealmBusiness.cs" />
+    <Compile Include="Business\UserBusiness.cs" />
+    <Compile Include="CallbackHandler\DeleteCustomerHandler.cs" />
+    <Compile Include="CallbackHandler\DeleteProductHandler.cs" />
+    <Compile Include="CallbackHandler\SaveProductHandler.cs" />
+    <Compile Include="CallbackHandler\SaveRealmHandler.cs" />
+    <Compile Include="CallbackHandler\SaveUserHandler.cs" />
+    <Compile Include="CallbackHandler\SyncProductHandler.cs" />
+    <Compile Include="CallbackHandler\SyncRealmHandler.cs" />
+    <Compile Include="CallbackHandler\SyncUserHandler.cs" />
+    <Compile Include="Converter\Converter.cs" />
+    <Compile Include="Entities\RealmEntity.cs" />
+    <Compile Include="Entities\UserEntity.cs" />
+    <Compile Include="Interface\IRealmEntity.cs" />
+    <Compile Include="Interface\IUserEntity.cs" />
+    <Compile Include="MessageReference\ServiceMessageClient.cs" />
+    <Compile Include="Repository\Local\RealmLocalRepository.cs" />
+    <Compile Include="Repository\Local\UserLocalRepository.cs" />
+    <Compile Include="Repository\Service\GenericServiceRepository.cs" />
+    <Compile Include="Entities\CustomerEntity.cs" />
+    <Compile Include="Interface\ICustomerEntity.cs" />
+    <Compile Include="Business\ProductBusiness.cs" />
+    <Compile Include="Repository\Local\ProductLocalRepository.cs" />
+    <Compile Include="CallbackHandler\SaveCustomerHandler.cs" />
+    <Compile Include="Repository\Service\RealmServiceRepository.cs" />
+    <Compile Include="Repository\Service\UserServiceRepository.cs" />
+    <Compile Include="ServiceCommandClientCreator.cs" />
+    <Compile Include="SubscriptionServiceRepository.cs" />
+    <Compile Include="Interface\IProductEntity.cs" />
+    <Compile Include="Entities\ProductEntity.cs" />
+    <Compile Include="Repository\Service\ProductServiceRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Service\ServiceRepository.cs" />
+    <Compile Include="CallbackHandler\SyncCustomerHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Tharga.Toolkit.LocalStorage\Tharga.Toolkit.LocalStorage.csproj">
+      <Project>{3387E4B5-CE13-4D7C-9975-12C51ED9092E}</Project>
+      <Name>Tharga.Toolkit.LocalStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tharga.Toolkit.ServerStorage\Tharga.Toolkit.ServerStorage.csproj">
+      <Project>{79693E0B-6129-403A-AC16-C58410D7246A}</Project>
+      <Name>Tharga.Toolkit.ServerStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tharga.Toolkit.Storage\Tharga.Toolkit.Storage.csproj">
+      <Project>{F9699C87-C488-492D-8F84-01E41EDD9759}</Project>
+      <Name>Tharga.Toolkit.Storage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleConsoleHost\SampleConsoleHost.csproj">
+      <Project>{86913F1B-5BD8-4AB5-89BC-0217CE51247A}</Project>
+      <Name>SampleConsoleHost</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleDataTransfer\SampleDataTransfer.csproj">
+      <Project>{D725279F-9FD6-42EF-91D2-FEE3A5A87787}</Project>
+      <Name>SampleDataTransfer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

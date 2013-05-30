@@ -1,0 +1,15 @@
+﻿<Window x:Class="SampleWpfClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:control="clr-namespace:SampleWpfClient.View.Control"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <control:ProductList />
+            <control:CustomerList />
+            <control:MessageList />
+            <control:UserList />
+            <control:RealmList />
+        </StackPanel>
+    </Grid>
+</Window>

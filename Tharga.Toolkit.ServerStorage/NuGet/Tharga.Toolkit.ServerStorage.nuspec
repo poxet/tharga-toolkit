@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Tharga Toolkit Server Storage</title>
+    <authors>$author$</authors>
+    <description>Tharga Toolkit Server Storage ia the server part of an event driven architecture.</description>
+    <projectUrl>http://www.thargelion.se</projectUrl>
+    <iconUrl>http://support.thargelion.se/Images/ThargelionIcon.png</iconUrl>
+    <language>en-US</language>
+    <tags></tags>
+  </metadata>
+	<files>
+		<file src="bin\Release\Tharga.Toolkit.Storage.dll" target="lib\net45" />
+	</files>
+</package>

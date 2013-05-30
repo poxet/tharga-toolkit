@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86913F1B-5BD8-4AB5-89BC-0217CE51247A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SampleConsoleHost</RootNamespace>
+    <AssemblyName>SampleConsoleHost</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SimpleInjector">
+      <HintPath>..\..\packages\SimpleInjector.1.6.0.12319\lib\net35\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Extensions">
+      <HintPath>..\..\packages\SimpleInjector.Extensions.1.6.0.12319\lib\net35\SimpleInjector.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tharga.Toolkit.LocalStorage">
+      <HintPath>..\..\packages\Tharga.Toolkit.LocalStorage.1.0.4750.30017\lib\net40\Tharga.Toolkit.LocalStorage.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\CustomerBusiness.cs" />
+    <Compile Include="Business\RealmBusiness.cs" />
+    <Compile Include="Business\UserBusiness.cs" />
+    <Compile Include="Handlers\CreateSessionHandler.cs" />
+    <Compile Include="Handlers\DeleteCommandHandler.cs" />
+    <Compile Include="Handlers\DeleteProductCommandHandler.cs" />
+    <Compile Include="Handlers\EndSessionHandler.cs" />
+    <Compile Include="Handlers\MoveCustomerCommandHandler.cs" />
+    <Compile Include="Handlers\SaveCommandHandler.cs" />
+    <Compile Include="Handlers\SaveProductCommandHandler.cs" />
+    <Compile Include="Handlers\SaveRealmCommandHandler.cs" />
+    <Compile Include="Handlers\Session.cs" />
+    <Compile Include="Handlers\SyncCommandHandler.cs" />
+    <Compile Include="Handlers\SyncCustomerCommandHandler.cs" />
+    <Compile Include="Business\ProductBusiness.cs" />
+    <Compile Include="Handlers\SyncRealmCommandHandler.cs" />
+    <Compile Include="Handlers\SyncUserCommandHandler.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Handlers\SaveUserCommandHandler.cs" />
+    <Compile Include="Handlers\SyncProductCommandHandler.cs" />
+    <Compile Include="TypesProviderLoader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Tharga.Toolkit.Console\Tharga.Toolkit.Console.csproj">
+      <Project>{b8bd1635-042f-4eb3-8018-5ceb7302c31b}</Project>
+      <Name>Tharga.Toolkit.Console</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tharga.Toolkit.ServerStorage\Tharga.Toolkit.ServerStorage.csproj">
+      <Project>{79693e0b-6129-403a-ac16-c58410d7246a}</Project>
+      <Name>Tharga.Toolkit.ServerStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tharga.Toolkit.Storage\Tharga.Toolkit.Storage.csproj">
+      <Project>{F9699C87-C488-492D-8F84-01E41EDD9759}</Project>
+      <Name>Tharga.Toolkit.Storage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleDataTransfer\SampleDataTransfer.csproj">
+      <Project>{D725279F-9FD6-42EF-91D2-FEE3A5A87787}</Project>
+      <Name>SampleDataTransfer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

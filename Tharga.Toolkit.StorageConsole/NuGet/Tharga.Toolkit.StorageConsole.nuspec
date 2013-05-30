@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Tharga Toolkit Storage Console</title>
+    <authors>$author$</authors>
+    <description>Tharga Toolkit Storage Console is the client part of an event driven architecture.</description>
+    <projectUrl>http://www.thargelion.se</projectUrl>
+    <iconUrl>http://support.thargelion.se/Images/ThargelionIcon.png</iconUrl>
+    <language>en-US</language>
+    <tags></tags>
+    <dependencies>
+      <dependency id="mongocsharpdriver" version="1.7" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Tharga.Toolkit.Console.dll" target="lib\net45" />
+    <file src="bin\Release\Tharga.Toolkit.LocalStorage.dll" target="lib\net45" />
+    <file src="bin\Release\Tharga.Toolkit.Storage.dll" target="lib\net45" />
+	<file src="bin\Release\Tharga.Toolkit.dll" target="lib\net45" />
+  </files>
+</package>
