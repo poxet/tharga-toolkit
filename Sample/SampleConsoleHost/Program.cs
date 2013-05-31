@@ -4,7 +4,6 @@ using Tharga.Toolkit.Console.Command.Base;
 using Tharga.Toolkit.ServerStorage;
 using Tharga.Toolkit.ServerStorage.Utility;
 using Tharga.Toolkit.Storage;
-using OutputLevel = Tharga.Toolkit.Console.Command.Base.OutputLevel;
 
 namespace SampleConsoleHost
 {
@@ -38,20 +37,20 @@ namespace SampleConsoleHost
             }
         }
 
-        private static void ServiceHandler_NotificationEvent(object sender, NotificationEventArgs e)
+        private static void ServiceHandler_NotificationEvent(object sender, ServiceHandler<ICallback>.NotificationEventArgs e)
         {
             switch (e.OutputLevel)
             {
-                case Tharga.Toolkit.ServerStorage.OutputLevel.Default:
+                case ServiceHandler<ICallback>.OutputLevel.Default:
                     _output.WriteLine(e.Message, OutputLevel.Default);
                     break;
-                case Tharga.Toolkit.ServerStorage.OutputLevel.Information:
+                case ServiceHandler<ICallback>.OutputLevel.Information:
                     _output.WriteLine(e.Message, OutputLevel.Information);
                     break;
-                case Tharga.Toolkit.ServerStorage.OutputLevel.Warning:
+                case ServiceHandler<ICallback>.OutputLevel.Warning:
                     _output.WriteLine(e.Message, OutputLevel.Warning);
                     break;
-                case Tharga.Toolkit.ServerStorage.OutputLevel.Error:
+                case ServiceHandler<ICallback>.OutputLevel.Error:
                     _output.WriteLine(e.Message, OutputLevel.Error);
                     break;
                 default:

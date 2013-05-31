@@ -2,7 +2,7 @@ using System;
 
 namespace Tharga.Toolkit.Console.Command.Base
 {
-    public enum OutputLevel { Default, Information, Warning, Error } //TODO: Why two of the same?
+    public enum OutputLevel { Default, Information, Warning, Error }
 
     public interface IConsole
     {

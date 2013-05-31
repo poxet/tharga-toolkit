@@ -18,7 +18,7 @@ namespace Tharga.Toolkit.Console
         //NOTE: Have flags shown in help section
         private const string FlagContinueInConsoleMode = "c";
 
-        public CommandEngine(IConsole console)
+        internal CommandEngine(IConsole console)
         {
             _rootCommand = new RootCommand(console, Stop);
         }

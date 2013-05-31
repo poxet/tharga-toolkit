@@ -8,28 +8,16 @@ using Tharga.Toolkit.Storage;
 
 namespace Tharga.Toolkit.ServerStorage
 {
-    public enum OutputLevel //TODO: Why two of the same?
-    {
-        Default = 0,
-        Information = 1,
-        Warning = 2,
-        Error = 3,
-    }
-
-    public class NotificationEventArgs : EventArgs
-    {
-        public string Message { get; private set; }
-        public OutputLevel OutputLevel { get; private set; }
-
-        public NotificationEventArgs(string message, OutputLevel outputLevel = OutputLevel.Default)
-        {
-            Message = message;
-            OutputLevel = outputLevel;
-        }
-    }
-
     public class ServiceHandler<T>
     {
+        public enum OutputLevel
+        {
+            Default = 0,
+            Information = 1,
+            Warning = 2,
+            Error = 3,
+        }
+
         private readonly ServiceHost _serviceHost;
         private readonly ServiceHost _subscriptionServiceHost;
 
@@ -65,6 +53,18 @@ namespace Tharga.Toolkit.ServerStorage
 
         #region Event
 
+
+        public class NotificationEventArgs : EventArgs
+        {
+            public string Message { get; private set; }
+            public OutputLevel OutputLevel { get; private set; }
+
+            internal NotificationEventArgs(string message, OutputLevel outputLevel = OutputLevel.Default)
+            {
+                Message = message;
+                OutputLevel = outputLevel;
+            }
+        }
 
         public static event EventHandler<NotificationEventArgs> NotificationEvent;
 
