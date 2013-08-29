@@ -5,13 +5,19 @@ namespace Tharga.Toolkit.Console.Command
 {
     public sealed class RootCommand : RootCommandBase
     {
-        internal RootCommand(IConsole console)
+        public RootCommand()
+            : this(null, null)
+        {
+
+        }
+
+        public RootCommand(IConsole console)
             : this(console, null)
         {
 
         }
 
-        internal RootCommand(IConsole console, Action stopAction)
+        public RootCommand(IConsole console, Action stopAction)
             : base(console, stopAction)
         {
 

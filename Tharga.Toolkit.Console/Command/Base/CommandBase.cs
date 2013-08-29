@@ -21,7 +21,7 @@ namespace Tharga.Toolkit.Console.Command.Base
         
         internal CommandBase(IConsole console, string name, string description = null)
         {
-            _console = console;
+            _console = console ?? new ClientConsole();
             _name = name.ToLower();
             _description = description;
         }
