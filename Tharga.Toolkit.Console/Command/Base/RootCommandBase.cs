@@ -5,6 +5,35 @@ namespace Tharga.Toolkit.Console.Command.Base
 {
     public abstract class RootCommandBase : ContainerCommandBase
     {
+        #region Event
+
+
+        public class ExceptionOccuredEventArgs : EventArgs
+        {
+            private readonly Exception _exception;
+
+            public ExceptionOccuredEventArgs(Exception exception)
+            {
+                _exception = exception;
+            }
+
+            public Exception Exception
+            {
+                get { return _exception; }
+            }
+        }
+
+        public event EventHandler<ExceptionOccuredEventArgs> ExceptionOccuredEvent;
+
+        protected virtual void InvokeExceptionOccuredEvent(ExceptionOccuredEventArgs e)
+        {
+            EventHandler<ExceptionOccuredEventArgs> handler = ExceptionOccuredEvent;
+            if (handler != null) handler(this, e);
+        }
+
+
+        #endregion
+
         internal RootCommandBase(IConsole console, Action stopAction)
             : base(console, "root")
         {
@@ -47,27 +76,24 @@ namespace Tharga.Toolkit.Console.Command.Base
             }
             catch (SystemException exception)
             {
+                InvokeExceptionOccuredEvent(new ExceptionOccuredEventArgs(exception));
                 OutputError(exception.Message);
             }
             catch (AggregateException exception)
             {
+                InvokeExceptionOccuredEvent(new ExceptionOccuredEventArgs(exception));
                 foreach (var exp in exception.InnerExceptions)
                     OutputError(exp.Message);
             }
             catch (Exception exception)
             {
+                InvokeExceptionOccuredEvent(new ExceptionOccuredEventArgs(exception));
                 OutputError(exception.Message);
                 OutputInformation("Terminating application...");
                 throw;
             }
 
-            //if (_commandMode && !success)
-            //{
-            //    _rootCommand.OutputError("Terminating command chain.");
-            //    return false;
-            //}
             return success;
         }
-
     }
 }
