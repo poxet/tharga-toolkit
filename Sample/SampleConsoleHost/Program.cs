@@ -13,7 +13,7 @@ namespace SampleConsoleHost
 
         private static void Main(string[] args)
         {
-            _output = new ServerConsole();
+            _output = new ServerConsole("Tharga.Toolkit.Console");
 
             try
             {

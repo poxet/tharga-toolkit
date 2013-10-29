@@ -1,6 +1,7 @@
 using System;
 using Tharga.Toolkit.Console.Command.Base;
 
+
 namespace Tharga.Toolkit.Console.Command
 {
     public sealed class RootCommand : RootCommandBase

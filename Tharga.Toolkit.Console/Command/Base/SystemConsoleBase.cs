@@ -53,7 +53,7 @@ namespace Tharga.Toolkit.Console.Command.Base
             System.Console.SetCursorPosition(left, top);
         }
 
-        public void WriteLine(string value, OutputLevel level)
+        public virtual void WriteLine(string value, OutputLevel level)
         {
             lock (SyncRoot)
             {
@@ -75,7 +75,7 @@ namespace Tharga.Toolkit.Console.Command.Base
                             System.Console.ForegroundColor = ConsoleColor.Red;
                             break;
                         default:
-                            System.Console.WriteLine(string.Format("--> Unknown level {0}.", level));
+                            System.Console.WriteLine("--> Unknown level {0}.", level);
                             System.Console.ForegroundColor = ConsoleColor.Blue;
                             break;
                     }

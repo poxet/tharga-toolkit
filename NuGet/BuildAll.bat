@@ -14,3 +14,5 @@
 
 @echo Tharga.Toolkit.StorageConsole
 ..\..\..\Utils\NuGet.exe pack ..\Tharga.Toolkit.StorageConsole\Tharga.Toolkit.StorageConsole.csproj -Prop Configuration=Release
+
+xcopy *.nupkg ..\..\..\NuGet /Y
