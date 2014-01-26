@@ -63,11 +63,11 @@
     <Compile Include="Command\SyncCustomerCommand.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Tharga.Toolkit.ServerStorage\Tharga.Toolkit.ServerStorage.csproj">
+    <ProjectReference Include="..\..\MongoDB\Server\Tharga.Toolkit.ServerStorage\Tharga.Toolkit.ServerStorage.csproj">
       <Project>{79693E0B-6129-403A-AC16-C58410D7246A}</Project>
       <Name>Tharga.Toolkit.ServerStorage</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Tharga.Toolkit.Storage\Tharga.Toolkit.Storage.csproj">
+    <ProjectReference Include="..\..\MongoDB\Tharga.Toolkit.Storage\Tharga.Toolkit.Storage.csproj">
       <Project>{F9699C87-C488-492D-8F84-01E41EDD9759}</Project>
       <Name>Tharga.Toolkit.Storage</Name>
     </ProjectReference>

@@ -34,6 +34,7 @@ namespace Tharga.Toolkit.Test
         }
 
         [TestMethod]
+        [Ignore]
         public void Reset()
         {
             //------------------------------------------

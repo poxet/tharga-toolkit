@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F9699C87-C488-492D-8F84-01E41EDD9759}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tharga.Toolkit.Storage</RootNamespace>
+    <AssemblyName>Tharga.Toolkit.Storage</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MongoDB.Bson, Version=1.7.0.4714, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\mongocsharpdriver.1.8.3\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.7.0.4714, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\mongocsharpdriver.1.8.3\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CheckSubscriptionRequest.cs" />
+    <Compile Include="Converter.cs" />
+    <Compile Include="CreateSessionRequest.cs" />
+    <Compile Include="DatabaseOfflineException.cs" />
+    <Compile Include="DeleteCommand.cs" />
+    <Compile Include="EndSessionRequest.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="IServiceCommand.cs" />
+    <Compile Include="ISession.cs" />
+    <Compile Include="KnownCommandTypesProvider.cs" />
+    <Compile Include="MongoDBCollectionAttribute.cs" />
+    <Compile Include="MongoRepositoryBase.cs" />
+    <Compile Include="OnSessionCreatedResponse.cs" />
+    <Compile Include="OnSessionEndedResponse.cs" />
+    <Compile Include="OnSubscriberChangeResponse.cs" />
+    <Compile Include="ICallback.cs" />
+    <Compile Include="IOnDeletedRequest.cs" />
+    <Compile Include="IOnSavedRequest.cs" />
+    <Compile Include="IOnSyncRequest.cs" />
+    <Compile Include="KnownCallbackTypesProvider.cs" />
+    <Compile Include="KnownEntityTypesProvider.cs" />
+    <Compile Include="OnDeletedResponse.cs" />
+    <Compile Include="OnSavedResponse.cs" />
+    <Compile Include="OnSubscriptionCheckedResponse.cs" />
+    <Compile Include="OnSubscriptionStartedResponse.cs" />
+    <Compile Include="OnSubscriptionStoppedResponse.cs" />
+    <Compile Include="OnSyncResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveCommand.cs" />
+    <Compile Include="StartSubscriptionRequest.cs" />
+    <Compile Include="StopSubscriptionRequest.cs" />
+    <Compile Include="SubscriptionStopReason.cs" />
+    <Compile Include="SyncCommand.cs" />
+    <Compile Include="SyncRequest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

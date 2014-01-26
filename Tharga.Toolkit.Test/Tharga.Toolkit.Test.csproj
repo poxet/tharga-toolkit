@@ -73,7 +73,7 @@
     <Compile Include="UserInformationTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Tharga.Toolkit.LocalStorage\Tharga.Toolkit.LocalStorage.csproj">
+    <ProjectReference Include="..\MongoDB\Local\Tharga.Toolkit.LocalStorage\Tharga.Toolkit.LocalStorage.csproj">
       <Project>{3387e4b5-ce13-4d7c-9975-12c51ed9092e}</Project>
       <Name>Tharga.Toolkit.LocalStorage</Name>
     </ProjectReference>

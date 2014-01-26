@@ -77,11 +77,11 @@
     <None Include="NuGet\Tharga.Toolkit.Console.nuspec" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Tharga.Toolkit.LocalStorage\Tharga.Toolkit.LocalStorage.csproj">
+    <ProjectReference Include="..\MongoDB\Local\Tharga.Toolkit.LocalStorage\Tharga.Toolkit.LocalStorage.csproj">
       <Project>{3387E4B5-CE13-4D7C-9975-12C51ED9092E}</Project>
       <Name>Tharga.Toolkit.LocalStorage</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Tharga.Toolkit.Storage\Tharga.Toolkit.Storage.csproj">
+    <ProjectReference Include="..\MongoDB\Tharga.Toolkit.Storage\Tharga.Toolkit.Storage.csproj">
       <Project>{F9699C87-C488-492D-8F84-01E41EDD9759}</Project>
       <Name>Tharga.Toolkit.Storage</Name>
     </ProjectReference>
