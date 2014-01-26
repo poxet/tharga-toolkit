@@ -45,6 +45,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D36F5A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit.Test", "Tharga.Toolkit.Test\Tharga.Toolkit.Test.csproj", "{CED5ED23-03AB-4D86-A6C7-C45B8D271EC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleConsole", "Sample\SampleConsole\SampleConsole.csproj", "{49F7E0AC-7856-415A-B760-300A37BC9889}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,6 +129,12 @@ Global
 		{CED5ED23-03AB-4D86-A6C7-C45B8D271EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CED5ED23-03AB-4D86-A6C7-C45B8D271EC8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CED5ED23-03AB-4D86-A6C7-C45B8D271EC8}.Release|x86.ActiveCfg = Release|Any CPU
+		{49F7E0AC-7856-415A-B760-300A37BC9889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49F7E0AC-7856-415A-B760-300A37BC9889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49F7E0AC-7856-415A-B760-300A37BC9889}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{49F7E0AC-7856-415A-B760-300A37BC9889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49F7E0AC-7856-415A-B760-300A37BC9889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49F7E0AC-7856-415A-B760-300A37BC9889}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -143,5 +151,6 @@ Global
 		{F9BEFC8C-C1E3-4C53-8A20-A3EDDF3EEDD5} = {70366613-A75C-46B8-937E-1EA02EC681EE}
 		{187E8D5C-E2DA-48C5-ACD7-F7E37E87ADAE} = {70366613-A75C-46B8-937E-1EA02EC681EE}
 		{D725279F-9FD6-42EF-91D2-FEE3A5A87787} = {70366613-A75C-46B8-937E-1EA02EC681EE}
+		{49F7E0AC-7856-415A-B760-300A37BC9889} = {70366613-A75C-46B8-937E-1EA02EC681EE}
 	EndGlobalSection
 EndGlobal
