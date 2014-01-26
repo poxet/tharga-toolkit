@@ -28,12 +28,18 @@ namespace Tharga.Toolkit.StorageConsole.Command
             return true;
         }
 
-        private Func<List<KeyValuePair<string, string>>> GetItemList()
+        //private List<KeyValuePair<string, Guid>> GetItemList()
+        //{
+        //    var list = _instance.GetAllAsync().Result;
+        //    return list.Select(x => new KeyValuePair<string, Guid>(x.Id.ToString(), x.Id)).ToList();
+        //}
+
+        private Func<List<KeyValuePair<Guid, string>>> GetItemList()
         {
             return () =>
                 {
                     var list = _instance.GetAllAsync().Result;
-                    return list.Select(x => new KeyValuePair<string, string>(x.Id.ToString(), x.Id.ToString())).ToList();
+                    return list.Select(x => new KeyValuePair<Guid, string>(x.Id, x.Id.ToString())).ToList();
                 };
         }
     }

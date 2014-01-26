@@ -93,15 +93,10 @@ namespace Tharga.Toolkit.Console.Command.Base
             return (T)TypeDescriptor.GetConverter(typeof(T)).ConvertFromInvariantString(value);
         }
 
-        private string QueryParam(string paramName, string autoProvideValue = null, string defaultValue = null)
+        private string QueryParam(string paramName, string autoProvideValue, string defaultValue)
         {
             if (!string.IsNullOrEmpty(autoProvideValue))
-            {
-                //NOTE: Check if the ecco flag is set, if so, ecco the entry back to the user
-                //OutputLine(string.Format("{0}{1}", paramName, autoProvideValue), null, false);
-
                 return autoProvideValue;
-            }
 
             if (!string.IsNullOrEmpty(defaultValue))
                 return QueryParam(paramName, null, () => new List<KeyValuePair<string, string>> { new KeyValuePair<string, string>(defaultValue, defaultValue) });
@@ -113,17 +108,103 @@ namespace Tharga.Toolkit.Console.Command.Base
             return read;
         }
 
-        protected T QueryParam<T>(string paramName, string autoProvideValue, Func<List<KeyValuePair<string, string>>> selectionDelegate)
+        protected T QueryParam<T>(string paramName, string autoProvideValue, Func<List<KeyValuePair<T, string>>> selectionDelegate)
         {
-            var value = QueryParam(paramName, autoProvideValue, selectionDelegate);
+            var selection = selectionDelegate.Invoke();
 
-            if (value.StartsWith("@"))
-                return VariableStore.Instance.Get<T>(value);
+            var q = GetParamByString(autoProvideValue, selection);
+            if (q != null)
+                return q.Value.Key;
 
-            return (T)TypeDescriptor.GetConverter(typeof(T)).ConvertFromInvariantString(value);
+            Output(string.Format("{0} [TAB]: ", paramName), null, false);
+
+            var left = _console.CursorLeft;
+            var tabIndex = -1;
+            var input = string.Empty;
+
+            while (true)
+            {
+                var key = _console.ReadKey();
+
+                if (key.Key == ConsoleKey.Enter)
+                {
+                    _console.NewLine();
+                    if (tabIndex == -1 || selection == null)
+                    {
+                        var q2 = GetParamByString(input, selection);
+                        if (q2 != null)
+                            return q2.Value.Key;
+                        //return (T) Convert.ChangeType(input, typeof (T));
+                        return (T)TypeDescriptor.GetConverter(typeof(T)).ConvertFromInvariantString(input);
+                    }
+                    return selection[tabIndex].Key;
+                }
+                if (key.KeyChar >= 32 && key.KeyChar <= 126)
+                {
+                    input += key.KeyChar; //NOTE: When changing the input, automatically exit tab mode (tabIndex = -1;)
+                    tabIndex = -1;
+                }
+                else
+                {
+                    //Take special action
+                    switch (key.Key)
+                    {
+                        case ConsoleKey.Backspace:
+                            if (_console.CursorLeft >= left)
+                            {
+                                input = input.Substring(0, input.Length - 1);
+                                tabIndex = -1;
+                                _console.Write(" ");
+                                _console.CursorLeft--;
+                            }
+                            else
+                                _console.CursorLeft++;
+                            break;
+                        case ConsoleKey.Tab:
+
+                            if (!selection.Any())
+                            {
+                                System.Diagnostics.Debug.WriteLine("There are no selections.");
+                                _console.CursorLeft--;
+                                break;
+                            }
+
+                            if (tabIndex >= selection.Count() - 1)
+                                tabIndex = -1;
+
+                            var emptyString = new string(' ', _console.CursorLeft - left);
+                            _console.CursorLeft = left;
+                            _console.Write(emptyString);
+
+                            _console.CursorLeft = left;
+                            _console.Write(selection[++tabIndex].Value);
+                            input = selection[tabIndex].Value;
+                            break;
+                        default:
+                            System.Diagnostics.Debug.WriteLine(key);
+                            _console.CursorLeft--;
+                            break;
+                    }
+                }
+            }
         }
 
-        private string QueryParam(string paramName, string autoProvideValue, Func<List<KeyValuePair<string, string>>> selectionDelegate)
+        private static KeyValuePair<T, string>? GetParamByString<T>(string autoProvideValue, List<KeyValuePair<T, string>> selection)
+        {
+            if (!string.IsNullOrEmpty(autoProvideValue))
+            {
+                var item = selection.SingleOrDefault(x => string.Compare(x.Value, autoProvideValue, StringComparison.InvariantCultureIgnoreCase) == 0);
+                if (item.Value == autoProvideValue)
+                    return item;
+
+                item = selection.SingleOrDefault(x => string.Compare(x.Key.ToString(), autoProvideValue, StringComparison.InvariantCultureIgnoreCase) == 0);
+                if (item.Key.ToString() == autoProvideValue)
+                    return item;
+            }
+            return null;
+        }
+
+        private string QueryParam(string paramName, string autoProvideValue) //, Func<List<KeyValuePair<string, string>>> selectionDelegate)
         {
             if (!string.IsNullOrEmpty(autoProvideValue))
             {
@@ -133,7 +214,8 @@ namespace Tharga.Toolkit.Console.Command.Base
                 return autoProvideValue;
             }
 
-            Output(string.Format("{0} [TAB]: ", paramName), null, false);
+            //Output(string.Format("{0} [TAB]: ", paramName), null, false);
+            Output(string.Format("{0}: ", paramName), null, false);
 
             var left = _console.CursorLeft;
             var tabIndex = -1;
@@ -170,36 +252,36 @@ namespace Tharga.Toolkit.Console.Command.Base
                             else
                                 _console.CursorLeft++;
                             break;
-                        case ConsoleKey.Tab:
-                            if (selectionDelegate != null)
-                            {
-                                if (selection == null)
-                                    selection = selectionDelegate.Invoke();
+                        //case ConsoleKey.Tab:
+                        //    if (selectionDelegate != null)
+                        //    {
+                        //        if (selection == null)
+                        //            selection = selectionDelegate.Invoke();
 
-                                if (!selection.Any())
-                                {
-                                    System.Diagnostics.Debug.WriteLine("There are no selections.");
-                                    _console.CursorLeft--;
-                                    break;
-                                }
+                        //        if (!selection.Any())
+                        //        {
+                        //            System.Diagnostics.Debug.WriteLine("There are no selections.");
+                        //            _console.CursorLeft--;
+                        //            break;
+                        //        }
 
-                                if (tabIndex >= selection.Count() - 1)
-                                    tabIndex = -1;
+                        //        if (tabIndex >= selection.Count() - 1)
+                        //            tabIndex = -1;
 
-                                var emptyString = new string(' ', _console.CursorLeft - left);
-                                _console.CursorLeft = left;
-                                _console.Write(emptyString);
+                        //        var emptyString = new string(' ', _console.CursorLeft - left);
+                        //        _console.CursorLeft = left;
+                        //        _console.Write(emptyString);
 
-                                _console.CursorLeft = left;
-                                _console.Write(selection[++tabIndex].Value);
-                                input = selection[tabIndex].Value;
-                            }
-                            else
-                            {
-                                System.Diagnostics.Debug.WriteLine("There is no selection. Ignore the tab key.");
-                                _console.CursorLeft--;
-                            }
-                            break;
+                        //        _console.CursorLeft = left;
+                        //        _console.Write(selection[++tabIndex].Value);
+                        //        input = selection[tabIndex].Value;
+                        //    }
+                        //    else
+                        //    {
+                        //        System.Diagnostics.Debug.WriteLine("There is no selection. Ignore the tab key.");
+                        //        _console.CursorLeft--;
+                        //    }
+                        //    break;
                         default:
                             System.Diagnostics.Debug.WriteLine(key);
                             _console.CursorLeft--;

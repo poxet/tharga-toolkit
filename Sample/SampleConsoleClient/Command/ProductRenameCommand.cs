@@ -31,12 +31,12 @@ namespace SampleConsoleClient.Command
             return true;
         }
 
-        protected Func<List<KeyValuePair<string, string>>> GetItemList()
+        protected Func<List<KeyValuePair<Guid, string>>> GetItemList()
         {
             return () =>
                 {
                     var list = _business.GetAllAsync().Result;
-                    return list.Select(x => new KeyValuePair<string, string>(x.Id.ToString(), x.Id.ToString())).ToList();
+                    return list.Select(x => new KeyValuePair<Guid, string>(x.Id, x.Id.ToString())).ToList();
                 };
         }
     }

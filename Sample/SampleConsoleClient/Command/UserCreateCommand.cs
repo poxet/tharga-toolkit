@@ -34,12 +34,12 @@ namespace SampleConsoleClient.Command
             return true;
         }
 
-        private Func<List<KeyValuePair<string, string>>> GetRealmList()
+        private Func<List<KeyValuePair<Guid, string>>> GetRealmList()
         {
             return () =>
                 {
                     var list = _realmBusiness.GetAllAsync().Result;
-                    return list.Select(x => new KeyValuePair<string, string>(x.Id.ToString(), x.Name.ToString(CultureInfo.InvariantCulture))).ToList();
+                    return list.Select(x => new KeyValuePair<Guid, string>(x.Id, x.Name.ToString(CultureInfo.InvariantCulture))).ToList();
                 };
         }
 

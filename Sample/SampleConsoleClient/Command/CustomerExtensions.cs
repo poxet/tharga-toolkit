@@ -8,12 +8,12 @@ namespace SampleConsoleClient.Command
 {
     public static class CustomerExtensions
     {
-        public static Func<List<KeyValuePair<string, string>>> GetItemList(this RealmBusinessBase<ICustomerEntity> business)
+        public static Func<List<KeyValuePair<Guid, string>>> GetItemList(this RealmBusinessBase<ICustomerEntity> business)
         {
             return () =>
             {
                 var list = business.GetAllAsync().Result;
-                return list.Select(x => new KeyValuePair<string, string>(x.Id.ToString(), x.Id.ToString())).ToList();
+                return list.Select(x => new KeyValuePair<Guid, string>(x.Id, x.Id.ToString())).ToList();
             };
         }
     }
