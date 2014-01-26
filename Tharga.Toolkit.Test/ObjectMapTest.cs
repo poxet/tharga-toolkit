@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Tharga.Toolkit.Test
 {
@@ -154,10 +154,10 @@ namespace Tharga.Toolkit.Test
     /// <summary>
     /// Summary description for ObjectMapTest
     /// </summary>
-    [TestClass]
+    [TestFixture]
     public class ObjectMapTest
     {
-        [TestMethod]
+        [Test]
         public void MapObject()
         {
             //------------------------------------------
@@ -176,7 +176,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(Compare(objectA, objectB) == 0, "The objects does not contain the same data");
         }
 
-        [TestMethod]
+        [Test]
         public void CreateFindAutoVerify()
         {
             //------------------------------------------
@@ -205,7 +205,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(Compare(objectA, objectB2) == 0, "The objects does not contain the same data");
         }
 
-        [TestMethod]
+        [Test]
         public void CreateFindManualVerify()
         {
             //------------------------------------------
@@ -234,7 +234,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(Compare(objectA, objectB) == 0, "The objects does not contain the same data");
         }
 
-        [TestMethod]
+        [Test]
         public void VerifyInvalidFieldMissing()
         {
             //------------------------------------------
@@ -266,7 +266,7 @@ namespace Tharga.Toolkit.Test
         //NOTE: Add multiple properties not allowed
         //NOTE: Add properties after verify not allowed
 
-        [TestMethod]
+        [Test]
         public void VerifyInvalidDatatype()
         {
             //------------------------------------------
@@ -297,7 +297,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsNotNull(om1, "Object map was not returned on create");
         }
 
-        [TestMethod]
+        [Test]
         public void MapStatic()
         {
             //------------------------------------------
@@ -327,7 +327,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(objectB.StaticData == staticValue, "Static data has not been set correctly");
         }
 
-        [TestMethod]
+        [Test]
         public void MapFunction()
         {
             //------------------------------------------
@@ -355,7 +355,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(objectB.Data == objectA.GetData(), "Function data has not been set correctly");
         }
 
-        [TestMethod]
+        [Test]
         public void MapConvertProperty()
         {
             //------------------------------------------
@@ -409,7 +409,7 @@ namespace Tharga.Toolkit.Test
             return string.Format("{0} {1}", x.ToShortDateString(), x.ToLongTimeString());
         }
 
-        [TestMethod]
+        [Test]
         public void MapWithSubObjects()
         {
             //------------------------------------------
@@ -444,7 +444,7 @@ namespace Tharga.Toolkit.Test
             return x.MapObject<TestDataB8Sub, TestDataA8Sub>();
         }
 
-        [TestMethod]
+        [Test]
         public void MapWithObjectConvert()
         {
             //------------------------------------------
@@ -473,7 +473,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsFalse(objectA.StringData == MapObjectConverter(objectA), "String data not set correctly");
         }
 
-        [TestMethod]
+        [Test]
         public void MapList()
         {
             //------------------------------------------
@@ -498,7 +498,7 @@ namespace Tharga.Toolkit.Test
                 Assert.IsTrue(Compare(sourceLsit[i], resultList[i]) == 0, "The items are not the same");
         }
 
-        [TestMethod]
+        [Test]
         public void MapCollection()
         {
             //------------------------------------------
@@ -523,7 +523,7 @@ namespace Tharga.Toolkit.Test
                 Assert.IsTrue(Compare(sourceLsit[i], resultList[i]) == 0, "The items are not the same");
         }
 
-        [TestMethod]
+        [Test]
         public void MapDictionary()
         {
             //------------------------------------------
@@ -552,7 +552,7 @@ namespace Tharga.Toolkit.Test
             }
         }
 
-        [TestMethod]
+        [Test]
         [ExpectedException(typeof(InvalidOperationException))]
         public void MapWithNoTargetNotAllowed()
         {

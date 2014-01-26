@@ -1,8 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace Tharga.Toolkit.Test
 {
-    [TestClass]
+    [TestFixture]
     public class StopWatchProcessBaseTest
     {
         private class MyStopWatch : StopWatchProcessBase
@@ -13,7 +13,7 @@ namespace Tharga.Toolkit.Test
             }
         }
 
-        [TestMethod]
+        [Test]
         public void StartStepComplete()
         {
             //------------------------------------------
@@ -37,7 +37,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(msw.ProcessList.Count == 3, "There are not three entries in the process list");
         }
 
-        [TestMethod]
+        [Test]
         public void TwoParallelWatches()
         {
             //------------------------------------------

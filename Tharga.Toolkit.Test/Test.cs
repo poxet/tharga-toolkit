@@ -1,13 +1,13 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Tharga.Toolkit.Test.Mocking;
 
 namespace Tharga.Toolkit.Test
 {
-    [TestClass]
+    [TestFixture]
     public class Test
     {
-        [TestMethod]
+        [Test]
         public void AssignRandomValues()
         {
             //------------------------------------------
@@ -26,7 +26,7 @@ namespace Tharga.Toolkit.Test
             Assert.AreNotEqual(Guid.Empty, someEntity.Id);
         }
 
-        [TestMethod]
+        [Test]
         public void AssignRandomValues_for_sub_entities()
         {
             //------------------------------------------
@@ -46,7 +46,7 @@ namespace Tharga.Toolkit.Test
             Assert.AreNotEqual(Guid.Empty, someParentEntity.SomeProperty.Id);
         }
 
-        [TestMethod]
+        [Test]
         public void AssignRandomValues_for_empty_sub_entities()
         {
             //------------------------------------------

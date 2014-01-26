@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Tharga.Toolkit.Test
 {
-    [TestClass]
+    [TestFixture]
     public class ExtensionsTest
     {
-        [TestMethod]
+        [Test]
         public void TakeAllButLast()
         {
             // Arrange
@@ -24,7 +24,7 @@ namespace Tharga.Toolkit.Test
             Assert.AreEqual(strings[1], result[1]);
         }
 
-        [TestMethod]
+        [Test]
         public void TakeAllButLast_when_empty()
         {
             // Arrange
@@ -37,7 +37,7 @@ namespace Tharga.Toolkit.Test
             Assert.AreEqual(0, result.Count);
         }
 
-        [TestMethod]
+        [Test]
         public void TakeAllButLast_when_contains_only_one()
         {
             // Arrange
@@ -50,7 +50,7 @@ namespace Tharga.Toolkit.Test
             Assert.AreEqual(0, result.Count);
         }
 
-        [TestMethod]
+        [Test]
         public void ToDateTimeString()
         {
             //------------------------------------------
@@ -69,7 +69,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(string.Compare(string.Format("{0} {1}", dateTime.ToShortDateString(), dateTime.ToLongTimeString()), result) == 0, "Parsed DateTime to 'Date Time String' is not right.");
         }
 
-        [TestMethod]
+        [Test]
         public void ToTimeString()
         {
             //------------------------------------------
@@ -89,7 +89,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(string.Compare(string.Format("{0}:{1}:{2}", diff.Hours, diff.Minutes.ToString("00"), diff.Seconds.ToString("00")), result) == 0, "Parsed TimeSpan to 'Time String' is not right");
         }
 
-        [TestMethod]
+        [Test]
         public void GetRandomItemFromList()
         {
             //------------------------------------------
@@ -108,7 +108,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(!string.IsNullOrEmpty(item),"The item is empty");
         }
 
-        [TestMethod]
+        [Test]
         public void GetRandomItemFromEmptyList()
         {
             //------------------------------------------
@@ -127,7 +127,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsNull(item, "The item is not null");
         }
 
-        [TestMethod]
+        [Test]
         public void GetRandomItemFromListWithOneEntity()
         {
             //------------------------------------------
@@ -146,7 +146,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(item == "A", "The item is not A");
         }
 
-        [TestMethod]
+        [Test]
         public void GetRandomItemFromCollection()
         {
             //------------------------------------------

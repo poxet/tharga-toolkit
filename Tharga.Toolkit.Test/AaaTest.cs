@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Tharga.Toolkit.Test
 {
@@ -13,7 +13,7 @@ namespace Tharga.Toolkit.Test
 
         protected Type ThrownExceptionType { get { return ThrownException == null ? null : ThrownException.GetType(); } }
 
-        [TestInitialize]
+        [TestFixtureSetUp]
         public void Setup()
         {
             Arrange();
@@ -32,7 +32,7 @@ namespace Tharga.Toolkit.Test
             }
         }
 
-        [TestCleanup]
+        [TestFixtureTearDown]
         public virtual void Teardown()
         {
 

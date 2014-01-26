@@ -23,6 +23,8 @@
     <SccProvider>
     </SccProvider>
     <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,7 +46,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -77,10 +81,6 @@
       <Project>{3387e4b5-ce13-4d7c-9975-12c51ed9092e}</Project>
       <Name>Tharga.Toolkit.LocalStorage</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Tharga.Toolkit.MongoDB\Tharga.Toolkit.MongoDB.csproj">
-      <Project>{99762AA3-1160-4B18-B3E4-081D0870C918}</Project>
-      <Name>Tharga.Toolkit.MongoDB</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Tharga.Toolkit\Tharga.Toolkit.csproj">
       <Project>{8D840036-39ED-42BE-B980-D571D59B8E47}</Project>
       <Name>Tharga.Toolkit</Name>
@@ -88,8 +88,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

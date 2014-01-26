@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace Tharga.Toolkit.Test
 {
-    [TestClass]
+    [TestFixture]
     public class StopWatchTest
     {
-        [TestMethod]
+        [Test]
         public void StartStop()
         {
             //------------------------------------------
@@ -33,7 +33,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(elapsed.TotalMilliseconds < longDelay, "Elapsed time is longer than long delay.");
         }
 
-        [TestMethod]
+        [Test]
         [Ignore]
         public void Reset()
         {
@@ -60,7 +60,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(elapsed.TotalMilliseconds < longDelay, "Elapsed time is longer than long delay.");
         }
 
-        [TestMethod]
+        [Test]
         public void StartStopStart()
         {
             //------------------------------------------
@@ -90,7 +90,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(elapsed.TotalMilliseconds < longDelay, "Elapsed time is longer than long delay.");
         }
 
-        [TestMethod]
+        [Test]
         public void Elapsed()
         {
             //------------------------------------------

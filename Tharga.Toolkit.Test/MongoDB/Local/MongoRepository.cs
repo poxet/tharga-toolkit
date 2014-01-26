@@ -1,13 +1,13 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Tharga.Toolkit.Test.Mocking;
 
 namespace Tharga.Toolkit.Test.MongoDB.Local
 {
-    [TestClass]
+    [TestFixture]
     class MongoRepository
     {
-        [TestMethod]
+        [Test]
         [Ignore]
         public void Save_some_entity()
         {
@@ -27,7 +27,7 @@ namespace Tharga.Toolkit.Test.MongoDB.Local
             //------------------------------------------
         }
 
-        [TestMethod]
+        [Test]
         [Ignore]
         public void Get_all_entities()
         {

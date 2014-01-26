@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace Tharga.Toolkit.Test
 {
-    [TestClass]
+    [TestFixture]
     public class UserInformationTest
     {
-        [TestMethod]
+        [Test]
         public void GetCurrent()
         {
             //------------------------------------------

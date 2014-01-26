@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Reflection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Tharga.Toolkit.Test
 {
-    [TestClass]
+    [TestFixture]
     public class EnvironmentTest
     {
-        [TestMethod]
+        [Test]
         public void AssemblyTitle()
         {            
             //------------------------------------------
@@ -26,7 +26,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(string.Compare(data, "Tharga Toolkit Test") == 0, "The title is not right");
         }
 
-        [TestMethod]
+        [Test]
         public void Description()
         {
             //------------------------------------------
@@ -45,7 +45,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(!string.IsNullOrEmpty(data), "Assembly description attribute contains no data");
         }
 
-        [TestMethod]
+        [Test]
         public void Company()
         {
             //------------------------------------------
@@ -65,7 +65,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(string.Compare(data, "Thargelion AB") == 0, "The company name is not right");
         }
 
-        [TestMethod]
+        [Test]
         public void Product()
         {
             //------------------------------------------
@@ -85,7 +85,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(string.Compare(data, "Toolkit Test") == 0, "The product name is not right");
         }
 
-        [TestMethod]
+        [Test]
         public void Copyright()
         {
             //------------------------------------------
@@ -105,7 +105,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(string.Compare(data, "Copyright © Thargelion AB 2011") == 0, "The copyright name is not right");
         }
 
-        [TestMethod]
+        [Test]
         public void Trademark()
         {
             //------------------------------------------
@@ -124,7 +124,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(!string.IsNullOrEmpty(data), "Assembly trademark attribute contains no data");
         }
 
-        [TestMethod]
+        [Test]
         public void Version()
         {
             //------------------------------------------
@@ -145,7 +145,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(data is Version, "The assembly version attribute data is not of type Version.");
         }
 
-        [TestMethod]
+        [Test]
         public void KeyName()
         {
             //------------------------------------------
@@ -165,7 +165,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(data.Contains("."), "Assembly key name is not correctly formatted");
         }
 
-        [TestMethod]
+        [Test]
         public void Location()
         {
             //------------------------------------------
@@ -184,7 +184,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(data == assembly.Location, "Location returns incorrect value");
         }
 
-        [TestMethod]
+        [Test]
         public void ToolkitVersion()
         {
             //------------------------------------------
@@ -204,7 +204,7 @@ namespace Tharga.Toolkit.Test
             Assert.IsTrue(data is Version, "The toolkit version data is not of type Version.");
         }
 
-        [TestMethod]
+        [Test]
         public void DataPath()
         {
             //------------------------------------------
