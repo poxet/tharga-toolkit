@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit.Test", "Thar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleConsole", "Sample\SampleConsole\SampleConsole.csproj", "{49F7E0AC-7856-415A-B760-300A37BC9889}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Test.Toolkit", "Tharga.Test.Toolkit\Tharga.Test.Toolkit.csproj", "{EE7BB953-2D25-4D3A-B1D3-F8EC5F2649EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,12 @@ Global
 		{49F7E0AC-7856-415A-B760-300A37BC9889}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49F7E0AC-7856-415A-B760-300A37BC9889}.Release|Any CPU.Build.0 = Release|Any CPU
 		{49F7E0AC-7856-415A-B760-300A37BC9889}.Release|x86.ActiveCfg = Release|Any CPU
+		{EE7BB953-2D25-4D3A-B1D3-F8EC5F2649EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE7BB953-2D25-4D3A-B1D3-F8EC5F2649EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE7BB953-2D25-4D3A-B1D3-F8EC5F2649EC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EE7BB953-2D25-4D3A-B1D3-F8EC5F2649EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE7BB953-2D25-4D3A-B1D3-F8EC5F2649EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE7BB953-2D25-4D3A-B1D3-F8EC5F2649EC}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

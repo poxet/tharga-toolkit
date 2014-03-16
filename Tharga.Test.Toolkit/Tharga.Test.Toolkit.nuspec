@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Tharga Test Toolkit</title>
+    <authors>$author$</authors>
+    <description>Tharga Test Toolkit contains common functions for testing.</description>
+    <projectUrl>http://www.thargelion.se</projectUrl>
+    <iconUrl>http://thargelion.se/Images/Logotype/Thargelion-White-Icon-48.png</iconUrl>
+    <language>en-US</language>
+    <tags></tags>
+  </metadata>  
+</package>
