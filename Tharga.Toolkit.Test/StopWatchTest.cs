@@ -6,6 +6,7 @@ namespace Tharga.Toolkit.Test
     public class StopWatchTest
     {
         [Test]
+        [Ignore]
         public void StartStop()
         {
             //------------------------------------------
@@ -61,6 +62,7 @@ namespace Tharga.Toolkit.Test
         }
 
         [Test]
+        [Ignore]
         public void StartStopStart()
         {
             //------------------------------------------
