@@ -9,6 +9,6 @@
     <projectUrl>http://www.thargelion.se</projectUrl>
     <iconUrl>http://thargelion.se/Images/Logotype/Thargelion-White-Icon-48.png</iconUrl>
     <language>en-US</language>
-    <tags></tags>
+    <tags>Registry Luhn checksum bankgiro plusgiro</tags>
   </metadata>  
 </package>

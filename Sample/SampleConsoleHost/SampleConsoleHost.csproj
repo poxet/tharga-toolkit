@@ -54,9 +54,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tharga.Toolkit.LocalStorage">
-      <HintPath>..\..\packages\Tharga.Toolkit.LocalStorage.1.0.4750.30017\lib\net40\Tharga.Toolkit.LocalStorage.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\CustomerBusiness.cs" />

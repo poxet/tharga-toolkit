@@ -31,11 +31,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleDataTransfer", "Sampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit.Storage", "MongoDB\Tharga.Toolkit.Storage\Tharga.Toolkit.Storage.csproj", "{F9699C87-C488-492D-8F84-01E41EDD9759}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{FDC019FF-F230-4B82-8C81-158BE5C0AA7E}"
-	ProjectSection(SolutionItems) = preProject
-		NuGet\BuildAll.bat = NuGet\BuildAll.bat
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D36F5A82-0106-490E-9594-C1C8C0BCE52C}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
@@ -43,7 +38,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D36F5A
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit.Test", "Tharga.Toolkit.Test\Tharga.Toolkit.Test.csproj", "{CED5ED23-03AB-4D86-A6C7-C45B8D271EC8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit.Tests", "Tharga.Toolkit.Tests\Tharga.Toolkit.Tests.csproj", "{CED5ED23-03AB-4D86-A6C7-C45B8D271EC8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleConsole", "Sample\SampleConsole\SampleConsole.csproj", "{49F7E0AC-7856-415A-B760-300A37BC9889}"
 EndProject

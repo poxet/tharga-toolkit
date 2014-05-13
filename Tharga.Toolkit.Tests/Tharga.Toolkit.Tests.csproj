@@ -9,8 +9,8 @@
     <ProjectGuid>{CED5ED23-03AB-4D86-A6C7-C45B8D271EC8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tharga.Toolkit.Test</RootNamespace>
-    <AssemblyName>Tharga.Toolkit.Test</AssemblyName>
+    <RootNamespace>Tharga.Toolkit.Tests</RootNamespace>
+    <AssemblyName>Tharga.Toolkit.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -61,6 +61,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AaaTest.cs" />
+    <Compile Include="Compare\CompareTester.cs" />
+    <Compile Include="Compare\OtherSomeSimpleClass.cs" />
+    <Compile Include="Compare\SomeCircleClass.cs" />
+    <Compile Include="Compare\SomeClass.cs" />
+    <Compile Include="Compare\SomeOtherSimpleClass.cs" />
+    <Compile Include="Compare\SomeSimpleClass.cs" />
+    <Compile Include="Compare\SomeTestClass.cs" />
+    <Compile Include="Compare\SomeTestStruct.cs" />
     <Compile Include="ExtensionsTest.cs" />
     <Compile Include="MongoDB\Local\MongoRepository.cs" />
     <Compile Include="Mocking\SomeEntity.cs" />

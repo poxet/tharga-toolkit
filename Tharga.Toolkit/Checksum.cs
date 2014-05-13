@@ -3,11 +3,16 @@ using System.Globalization;
 
 namespace Tharga.Toolkit
 {
-    public class Checksum
+    public static class Checksum
     {
-        //The length check-sum is used for "Plusgiro".
-        //The length check-sum cannot be used for "Person" eller "Org" numbers.
-        //The length check-sum can be added for "Bankgiro" but is not used.
+        /// <summary>
+        /// The length check-sum is used for "Plusgiro".
+        /// The length check-sum cannot be used for "Person" eller "Org" numbers.
+        /// The length check-sum can be added for "Bankgiro" but is not used.
+        /// </summary>
+        /// <param name="valueWithoutChecksum"></param>
+        /// <param name="useLengthChecksum"></param>
+        /// <returns></returns>
         public static string CreateLuhnString(string valueWithoutChecksum, bool useLengthChecksum = true)
         {
             if (useLengthChecksum)

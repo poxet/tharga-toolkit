@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace Tharga.Toolkit.Test
 {
-    public static class Helper
+    public static class RandomUtility
     {
         private static readonly Random Rng = new Random();
 
