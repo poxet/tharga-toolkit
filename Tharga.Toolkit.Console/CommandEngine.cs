@@ -73,9 +73,10 @@ namespace Tharga.Toolkit.Console
 
         private string GetCommandModeEntry(IEnumerable<string> commands, ref int commandIndex, IEnumerable<string> flags)
         {
-            var entry = commands.ToList()[commandIndex++];
+            var commandList = commands.ToList();
+            var entry = commandList[commandIndex++];
 
-            if (commandIndex >= commands.Count())
+            if (commandIndex >= commandList.Count())
             {
                 if (HasFlag(flags, FlagContinueInConsoleMode))
                     _commandMode = false;
