@@ -24,6 +24,7 @@ namespace SampleConsole
         {
             RegisterCommand(new SomeListCommand());
             RegisterCommand(new SomeItemCommand());
+            RegisterCommand(new SomeIssueCommand());
         }
     }
 
@@ -63,6 +64,25 @@ namespace SampleConsole
         {
             for (var i = 0; i < 5; i++)
                 OutputInformation("Some data {0}", i);
+            return true;
+        }
+    }
+
+    class SomeIssueCommand : ActionCommandBase
+    {
+        public SomeIssueCommand()
+            : base("issue", "Some command with an issue")
+        {
+
+        }
+
+        public override async Task<bool> InvokeAsync(string paramList)
+        {
+            var invalidOperationException = new InvalidOperationException("Some issue");
+            invalidOperationException.Data.Add("Data1", "A");
+            invalidOperationException.Data.Add("Data2", "B");
+            throw invalidOperationException;
+
             return true;
         }
     }

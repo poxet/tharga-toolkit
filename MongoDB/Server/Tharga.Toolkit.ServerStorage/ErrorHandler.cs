@@ -13,8 +13,6 @@ namespace Tharga.Toolkit.ServerStorage
 
         public bool HandleError(Exception error)
         {
-            //Console.WriteLine(error.Message);
-            //ServiceHandler<T>.InvokeNotificationEvent(new ServiceHandler<T>.NotificationEventArgs(string.Format("Command Queue Service Host Faulted."), ServiceHandler<T>.OutputLevel.Error));
             ServiceHandler<T>.InvokeNotificationEvent(new ServiceHandler<T>.NotificationEventArgs(string.Format("Command Queue Service Host Faulted. Exception: {0} (Inner: {1})", error.Message, error.InnerException != null ? error.InnerException.Message : "N/A"), ServiceHandler<T>.OutputLevel.Error));
             return false;
         }

@@ -77,18 +77,18 @@ namespace Tharga.Toolkit.Console.Command.Base
             catch (SystemException exception)
             {
                 InvokeExceptionOccuredEvent(new ExceptionOccuredEventArgs(exception));
-                OutputError(exception.Message);
+                OutputError(exception);
             }
             catch (AggregateException exception)
             {
                 InvokeExceptionOccuredEvent(new ExceptionOccuredEventArgs(exception));
                 foreach (var exp in exception.InnerExceptions)
-                    OutputError(exp.Message);
+                    OutputError(exp);
             }
             catch (Exception exception)
             {
                 InvokeExceptionOccuredEvent(new ExceptionOccuredEventArgs(exception));
-                OutputError(exception.Message);
+                OutputError(exception);
                 OutputInformation("Terminating application...");
                 throw;
             }

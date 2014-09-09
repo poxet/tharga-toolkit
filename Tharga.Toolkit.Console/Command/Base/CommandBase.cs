@@ -1,7 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Tharga.Toolkit.Console.Command.Base
@@ -289,6 +292,28 @@ namespace Tharga.Toolkit.Console.Command.Base
                     }
                 }
             }
+        }
+
+        public void OutputError(Exception exception)
+        {
+            var sb = new StringBuilder();
+            sb.AppendFormat(exception.Message);
+            if (exception.Data.Count > 0)
+            {
+                sb.Append(" [");
+
+                var i = 0;
+                foreach (DictionaryEntry item in exception.Data)
+                {
+                    sb.AppendFormat("{0}={1}", item.Key, item.Value);
+                    if (exception.Data.Count > ++i)
+                        sb.Append(", ");
+                }
+
+                sb.Append("]");
+            }
+
+            Output(sb.ToString(), ConsoleColor.Red, true);
         }
 
         public void OutputError(string message, params object[] args)
