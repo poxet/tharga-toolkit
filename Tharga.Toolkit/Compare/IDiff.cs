@@ -4,5 +4,7 @@ namespace Tharga.Toolkit
     {
         string Message { get; }
         string ObjectName { get; }
+        string OtherObjectName { get; }
+        int? Index { get; }
     }
 }

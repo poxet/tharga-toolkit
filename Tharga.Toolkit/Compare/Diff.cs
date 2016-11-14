@@ -2,15 +2,22 @@ namespace Tharga.Toolkit
 {
     public class Diff : IDiff
     {
-        public Diff(string objectName, string otherObjectName, string message)
+        public Diff(string objectName, string otherObjectName, string message, int? index)
         {
             ObjectName = objectName ?? "N/A";
             OtherObjectName = otherObjectName ?? "N/A";
             Message = message;
+            Index = index;
+
+            if (ObjectName.Contains("[]") && index != null)
+            {
+                ObjectName = ObjectName.Replace("[]", $"[{index}]");
+            }
         }
 
-        public string ObjectName { get; private set; }
-        public string OtherObjectName { get; private set; }
-        public string Message { get; private set; }
+        public string ObjectName { get; }
+        public int? Index { get; }
+        public string OtherObjectName { get; }
+        public string Message { get; }
     }
 }

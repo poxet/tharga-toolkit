@@ -9,12 +9,6 @@ namespace HM.Order.OrderService.Business.Tests.UnitTests.CompareExtensions
     [TestFixture]
     public class CompareTester
     {
-        //// DABO: Write more tests...
-        //// TODO: Compare dictionaries
-        //// TODO: KeyValuePair
-        //// TODO: IEnumerable
-        //// TODO: Arrays
-
         [Test]
         public void When_comparing_a_date_with_itself()
         {
@@ -169,6 +163,53 @@ namespace HM.Order.OrderService.Business.Tests.UnitTests.CompareExtensions
             // Assert
             Assert.AreEqual(0, diffs.Count());
         }
+
+        [Test]
+        public void When_comparing_two_arrays_where_one_is_longer_than_the_other()
+        {
+            // Arrange
+            var d1 = new string[] { "A", "B", "C" };
+            var d2 = new string[] { "A", "B" };
+
+            // Act
+            var diffs = d1.Compare(d2).ToArray();
+
+            // Assert
+            Assert.AreEqual(1, diffs.Length);
+        }
+
+        [Test]
+        public void When_comparing_two_arrays_where_one_is_shorter_than_the_other()
+        {
+            // Arrange
+            var d1 = new string[] { "A", "B" };
+            var d2 = new string[] { "A", "B", "C" };
+
+            // Act
+            var diffs = d1.Compare(d2).ToArray();
+
+            // Assert
+            Assert.AreEqual(1, diffs.Length);
+        }
+
+        [Test]
+        public void When_comparing_two_arrays_with_same_length_but_different_values()
+        {
+            // Arrange
+            var d1 = new string[] { "A", "B", "C" };
+            var d2 = new string[] { "A", "BB", "C" };
+
+            // Act
+            var diffs = d1.Compare(d2).ToArray();
+
+            // Assert
+            Assert.AreEqual(1, diffs.Length);
+            Assert.AreEqual("One string has value B and the other string has value BB.", diffs.First().Message);
+            Assert.AreEqual("String[1].String", diffs.First().ObjectName);
+            Assert.AreEqual(1, diffs.First().Index);
+        }
+
+        //ARR
 
         [Test]
         public void When_comparing_a_dictionary_with_itself()
@@ -829,6 +870,146 @@ namespace HM.Order.OrderService.Business.Tests.UnitTests.CompareExtensions
 
             // Assert
             Assert.AreEqual(1, diffs.Length);
+        }
+
+        [Test]
+        public void When_comparing_lists_that_are_ordered_differently()
+        {
+            // Arrange
+            var o1 = new List<string> { "A", "B", "C" };
+            var o2 = new List<string> { "A", "C", "B" };
+
+            // Act
+            var diffs = o1.Compare(o2).ToArray();
+
+            // Assert
+            Assert.AreEqual(2, diffs.Length);
+        }
+
+        [Test]
+        public void When_comparing_lists_that_are_ordered_differently_and_sort_order_is_ignored()
+        {
+            // Arrange
+            var o1 = new List<string> { "A", "B", "C" };
+            var o2 = new List<string> { "A", "C", "B" };
+
+            // Act
+            var diffs = o1.Compare(o2, Tharga.Toolkit.CompareExtensions.CompareMode.IgnoreSortOrder).ToArray();
+
+            // Assert
+            Assert.AreEqual(0, diffs.Length);
+        }
+
+        [Test]
+        public void When_comparing_lists_that_are_ordered_differently_and_sort_order_is_ignored_()
+        {
+            // Arrange
+            var o1 = new List<string> { "A", "B", "B" };
+            var o2 = new List<string> { "A", "C", "B" };
+
+            // Act
+            var diffs = o1.Compare(o2, Tharga.Toolkit.CompareExtensions.CompareMode.IgnoreSortOrder).ToArray();
+
+            // Assert
+            Assert.AreEqual(1, diffs.Length);
+        }
+
+        [Test]
+        public void When_comparing_lists_that_are_ordered_differently_and_sort_order_is_ignored_2()
+        {
+            // Arrange
+            var o1 = new List<string> { "A", "B", "C" };
+            var o2 = new List<string> { "A", "C", "C" };
+
+            // Act
+            var diffs = o1.Compare(o2, Tharga.Toolkit.CompareExtensions.CompareMode.IgnoreSortOrder).ToArray();
+
+            // Assert
+            Assert.AreEqual(1, diffs.Length);
+        }
+
+        [Test]
+        public void When_comparing_lists_with_complex_objects_that_are_ordered_differently()
+        {
+            // Arrange
+            var o1 = new List<SomeSimpleClass> { new SomeSimpleClass { Data = "A" }, new SomeSimpleClass { Data = "B" }, new SomeSimpleClass { Data = "C" } };
+            var o2 = new List<SomeSimpleClass> { new SomeSimpleClass { Data = "A" }, new SomeSimpleClass { Data = "C" }, new SomeSimpleClass { Data = "B" } };
+
+            // Act
+            var diffs = o1.Compare(o2).ToArray();
+
+            // Assert
+            Assert.AreEqual(2, diffs.Length);
+        }
+
+        [Test]
+        public void When_comparing_lists_with_complex_objects_that_are_ordered_differently_and_sort_order_is_ignored()
+        {
+            // Arrange
+            var o1 = new List<SomeSimpleClass> { new SomeSimpleClass { Data = "A" }, new SomeSimpleClass { Data = "B" }, new SomeSimpleClass { Data = "C" } };
+            var o2 = new List<SomeSimpleClass> { new SomeSimpleClass { Data = "A" }, new SomeSimpleClass { Data = "C" }, new SomeSimpleClass { Data = "B" } };
+
+            // Act
+            var diffs = o1.Compare(o2, Tharga.Toolkit.CompareExtensions.CompareMode.IgnoreSortOrder).ToArray();
+
+            // Assert
+            Assert.AreEqual(0, diffs.Length);
+        }
+
+        [Test]
+        public void When_comparing_lists_with_complex_objects_that_are_ordered_differently_and_sort_order_is_ignored_()
+        {
+            // Arrange
+            var o1 = new List<SomeSimpleClass> { new SomeSimpleClass { Data = "A" }, new SomeSimpleClass { Data = "B" }, new SomeSimpleClass { Data = "B" } };
+            var o2 = new List<SomeSimpleClass> { new SomeSimpleClass { Data = "A" }, new SomeSimpleClass { Data = "C" }, new SomeSimpleClass { Data = "B" } };
+
+            // Act
+            var diffs = o1.Compare(o2, Tharga.Toolkit.CompareExtensions.CompareMode.IgnoreSortOrder).ToArray();
+
+            // Assert
+            Assert.AreEqual(1, diffs.Length);
+        }
+
+        [Test]
+        public void When_comparing_lists_with_complex_objects_that_are_ordered_differently_and_sort_order_is_ignored_2()
+        {
+            // Arrange
+            var o1 = new List<SomeSimpleClass> { new SomeSimpleClass { Data = "A" }, new SomeSimpleClass { Data = "B" }, new SomeSimpleClass { Data = "C" } };
+            var o2 = new List<SomeSimpleClass> { new SomeSimpleClass { Data = "A" }, new SomeSimpleClass { Data = "C" }, new SomeSimpleClass { Data = "C" } };
+
+            // Act
+            var diffs = o1.Compare(o2, Tharga.Toolkit.CompareExtensions.CompareMode.IgnoreSortOrder).ToArray();
+
+            // Assert
+            Assert.AreEqual(1, diffs.Length);
+        }
+
+        [Test]
+        public void When_comparing_lists_with_complex_objects_of_different_types_that_are_ordered_differently_and_sort_order_is_ignored()
+        {
+            // Arrange
+            var o1 = new List<SomeSimpleClass> { new SomeSimpleClass { Data = "A" }, new SomeSimpleClass { Data = "B" }, new SomeSimpleClass { Data = "C" } };
+            var o2 = new List<SomeOtherSimpleClass> { new SomeOtherSimpleClass { Data = "A" }, new SomeOtherSimpleClass { Data = "C" }, new SomeOtherSimpleClass { Data = "B" } };
+
+            // Act
+            var diffs = o1.Compare(o2, Tharga.Toolkit.CompareExtensions.CompareMode.IgnoreSortOrder).ToArray();
+
+            // Assert
+            Assert.AreEqual(1, diffs.Length);
+        }
+
+        [Test]
+        public void When_comparing_lists_with_complex_objects_of_different_types_that_are_ordered_differently_and_sort_order_and_type_is_ignored()
+        {
+            // Arrange
+            var o1 = new List<SomeSimpleClass> { new SomeSimpleClass { Data = "A" }, new SomeSimpleClass { Data = "B" }, new SomeSimpleClass { Data = "C" } };
+            var o2 = new List<SomeOtherSimpleClass> { new SomeOtherSimpleClass { Data = "A" }, new SomeOtherSimpleClass { Data = "C" }, new SomeOtherSimpleClass { Data = "B" } };
+
+            // Act
+            var diffs = o1.Compare(o2, Tharga.Toolkit.CompareExtensions.CompareMode.IgnoreType | Tharga.Toolkit.CompareExtensions.CompareMode.IgnoreSortOrder).ToArray();
+
+            // Assert
+            Assert.AreEqual(0, diffs.Length);
         }
     }
 }

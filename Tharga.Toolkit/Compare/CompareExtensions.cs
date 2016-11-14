@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Tharga.Toolkit
 {
@@ -11,6 +12,7 @@ namespace Tharga.Toolkit
         {
             Standard = 0x0,
             IgnoreType = 0x1,
+            IgnoreSortOrder = 0x2,
         }
 
         public static IEnumerable<IDiff> Compare(this object s1, object s2, CompareMode compareMode = CompareMode.Standard)
@@ -27,9 +29,9 @@ namespace Tharga.Toolkit
                 yield break;
 
             if (s1 == null)
-                yield return new Diff(parentObject1Name, parentObject2Name, string.Format("One item has a value and the other is null."));
+                yield return new Diff(parentObject1Name, parentObject2Name, string.Format("One item has a value and the other is null."), null);
             else if (s2 == null)
-                yield return new Diff(parentObject1Name, parentObject2Name, string.Format("One item is null and the other has a value."));
+                yield return new Diff(parentObject1Name, parentObject2Name, string.Format("One item is null and the other has a value."), null);
             else
             {
                 var tp1 = s1.GetType();
@@ -39,13 +41,13 @@ namespace Tharga.Toolkit
                 var item2Name = parentObject1Name != null ? string.Format("{0}.{1}", parentObject2Name, s2.GetType().Name) : s2.GetType().Name;
 
                 if (tp1 != tp2 && (compareMode & CompareMode.IgnoreType) != CompareMode.IgnoreType)
-                    yield return new DifferentTypes(item1Name, tp1, tp2);
+                    yield return new DifferentTypes(item1Name, tp1, tp2, null);
                 else
                 {
                     if (s1 as string != null || s2 as string != null)
                     {
                         if (s1.ToString() != s2.ToString())
-                            yield return new Diff(item1Name, item2Name, string.Format("One string has value {0} and the other string has value {1}.", s1, s2));
+                            yield return new Diff(item1Name, item2Name, string.Format("One string has value {0} and the other string has value {1}.", s1, s2), null);
                     }
                     else if (s1 is DateTime || s2 is DateTime)
                     {
@@ -80,14 +82,14 @@ namespace Tharga.Toolkit
         {
             int i1;
             if (!int.TryParse(s1.ToString(), out i1))
-                yield return new Diff(item1Name, item2Name, string.Format("Cannot parse {0} with value {1} to an int to compare with {2} with value {3}.", item1Name, s1, item2Name, s2));
+                yield return new Diff(item1Name, item2Name, string.Format("Cannot parse {0} with value {1} to an int to compare with {2} with value {3}.", item1Name, s1, item2Name, s2), null);
             else
             {
                 int i2;
                 if (!int.TryParse(s2.ToString(), out i2))
-                    yield return new Diff(item1Name, item2Name, string.Format("Cannot parse {0} with value {1} to an int to compare with {2} with value {3}.", item2Name, s2, item1Name, s1));
+                    yield return new Diff(item1Name, item2Name, string.Format("Cannot parse {0} with value {1} to an int to compare with {2} with value {3}.", item2Name, s2, item1Name, s1), null);
                 else if (i1 - i2 != 0)
-                    yield return new Diff(item1Name, item2Name, string.Format("Value of int {0} is {1} and differs from {2} with {3} by {4}.", item1Name, s1, item2Name, s2, Math.Abs(i1 - i2)));
+                    yield return new Diff(item1Name, item2Name, string.Format("Value of int {0} is {1} and differs from {2} with {3} by {4}.", item1Name, s1, item2Name, s2, Math.Abs(i1 - i2)), null);
             }
         }
 
@@ -95,14 +97,14 @@ namespace Tharga.Toolkit
         {
             decimal i1;
             if (!decimal.TryParse(s1.ToString(), out i1))
-                yield return new Diff(item1Name, item2Name, string.Format("Cannot parse {0} with value {1} to an decimal to compare with {2} with value {3}.", item1Name, s1, item2Name, s2));
+                yield return new Diff(item1Name, item2Name, string.Format("Cannot parse {0} with value {1} to an decimal to compare with {2} with value {3}.", item1Name, s1, item2Name, s2), null);
             else
             {
                 decimal i2;
                 if (!decimal.TryParse(s2.ToString(), out i2))
-                    yield return new Diff(item1Name, item2Name, string.Format("Cannot parse {0} with value {1} to an decimal to compare with {2} with value {3}.", item2Name, s2, item1Name, s1));
+                    yield return new Diff(item1Name, item2Name, string.Format("Cannot parse {0} with value {1} to an decimal to compare with {2} with value {3}.", item2Name, s2, item1Name, s1), null);
                 else if (i1 - i2 != 0)
-                    yield return new Diff(item1Name, item2Name, string.Format("Value of decimal {0} is {1} and differs from {2} with {3} by {4}.", item1Name, s1, item2Name, s2, Math.Abs(i1 - i2)));
+                    yield return new Diff(item1Name, item2Name, string.Format("Value of decimal {0} is {1} and differs from {2} with {3} by {4}.", item1Name, s1, item2Name, s2, Math.Abs(i1 - i2)), null);
             }
         }
 
@@ -110,14 +112,14 @@ namespace Tharga.Toolkit
         {
             DateTime i1;
             if (!DateTime.TryParse(s1.ToString(), out i1))
-                yield return new Diff(item1Name, item2Name, string.Format("Cannot parse {0} with value {1} to an DateTime to compare with {2} with value {3}.", item1Name, s1, item2Name, s2));
+                yield return new Diff(item1Name, item2Name, string.Format("Cannot parse {0} with value {1} to an DateTime to compare with {2} with value {3}.", item1Name, s1, item2Name, s2), null);
             else
             {
                 DateTime i2;
                 if (!DateTime.TryParse(s2.ToString(), out i2))
-                    yield return new Diff(item1Name, item2Name, string.Format("Cannot parse {0} with value {1} to an DateTime to compare with {2} with value {3}.", item2Name, s2, item1Name, s1));
+                    yield return new Diff(item1Name, item2Name, string.Format("Cannot parse {0} with value {1} to an DateTime to compare with {2} with value {3}.", item2Name, s2, item1Name, s1), null);
                 else if (i1 - i2 != new TimeSpan())
-                    yield return new Diff(item1Name, item2Name, string.Format("Value of DateTime {0} is {1} and differs from {2} with {3} by {4} ticks.", item1Name, ((DateTime)s1).ToShortDateString() + " " + ((DateTime)s1).ToLongTimeString(), item2Name, ((DateTime)s2).ToShortDateString() + " " + ((DateTime)s2).ToLongTimeString(), Math.Abs(((DateTime)s1 - (DateTime)s2).Ticks)));
+                    yield return new Diff(item1Name, item2Name, string.Format("Value of DateTime {0} is {1} and differs from {2} with {3} by {4} ticks.", item1Name, ((DateTime)s1).ToShortDateString() + " " + ((DateTime)s1).ToLongTimeString(), item2Name, ((DateTime)s2).ToShortDateString() + " " + ((DateTime)s2).ToLongTimeString(), Math.Abs(((DateTime)s1 - (DateTime)s2).Ticks)), null);
             }
         }
 
@@ -137,7 +139,7 @@ namespace Tharga.Toolkit
             if (!itemHasDiffs)
             {
                 if (s1.ToString() != s2.ToString())
-                    yield return new Diff(item1Name, item2Name, string.Format("The value of the item {2} is {0} and the value of the other item ({3}) is {1}.", s1, s2, item1Name, item2Name));
+                    yield return new Diff(item1Name, item2Name, string.Format("The value of the item {2} is {0} and the value of the other item ({3}) is {1}.", s1, s2, item1Name, item2Name), null);
             }
         }
 
@@ -147,23 +149,36 @@ namespace Tharga.Toolkit
             {
                 var enumr1 = (s1 as IEnumerable).GetEnumerator();
                 var enumr2 = (s2 as IEnumerable).GetEnumerator();
+                var used = new List<object>();
 
+                var index = 0;
                 while (true)
                 {
                     var ptr1 = enumr1.MoveNext();
                     var ptr2 = enumr2.MoveNext();
 
                     if (ptr1 != ptr2)
-                        yield return new Diff(item1Name, item2Name, string.Format("One value has the value {0} and the other has value {1}.", ptr1, ptr2));
+                    {
+                        yield return new Diff(item1Name, item2Name, string.Format("One value has the value {0} and the other has value {1}.", ptr1, ptr2), index);
+                    }
                     if (!ptr1 || !ptr2)
                         yield break;
 
                     var data1 = enumr1.Current;
                     var data2 = enumr2.Current;
 
+                    if (compareMode.HasFlag(CompareMode.IgnoreSortOrder))
+                    {
+                        //Find a match, anywhere in the enumerator.
+                        data2 = GetMatchFromList(item1Name, item2Name, data1, s2, compareMode, visited, used);
+                    }
+
                     var diffs = DoCompare(item1Name, item2Name, data1, data2, compareMode, visited);
                     foreach (var diff in diffs)
-                        yield return diff;
+                    {
+                        yield return new Diff(diff.ObjectName, diff.OtherObjectName, diff.Message, index);
+                    }
+                    index++;
                 }
             }
             else
@@ -171,6 +186,31 @@ namespace Tharga.Toolkit
                 foreach (var diff2 in CompareMembers(item1Name, item2Name, s1, s2, compareMode, visited))
                     yield return diff2;
             }
+        }
+
+        private static object GetMatchFromList(string item1Name, string item2Name, object data1, object s2, CompareMode compareMode, List<object> visited, List<object> used)
+        {
+            var enumr2 = (s2 as IEnumerable).GetEnumerator();
+            var ptr2 = true;
+            while (ptr2)
+            {
+                ptr2 = enumr2.MoveNext();
+                if (ptr2)
+                {
+                    var data2 = enumr2.Current;
+                    var v = new List<object>();
+                    //NOTE: Not sure if to use the regular "Visited" or if to use a temporary variable.
+                    if (!DoCompare(item1Name, item2Name, data1, data2, compareMode, v).Any())
+                    {
+                        if (!used.Any(x => object.ReferenceEquals(x, data2)))
+                        {
+                            used.Add(data2);
+                            return data2;
+                        }
+                    }
+                }
+            }
+            return null;
         }
 
         private static IEnumerable<IDiff> CompareMembers(string item1Name, string item2Name, object s1, object s2, CompareMode compareMode, List<object> visited)
@@ -240,7 +280,7 @@ namespace Tharga.Toolkit
                 return val;
             }
 
-            diff = new Diff(item1Name, item2Name, string.Format("Cannot find the property or field named {0} in object of type {1}.", name, s2.GetType()));
+            diff = new Diff(item1Name, item2Name, string.Format("Cannot find the property or field named {0} in object of type {1}.", name, s2.GetType()), null);
             return null;
         }
     }
