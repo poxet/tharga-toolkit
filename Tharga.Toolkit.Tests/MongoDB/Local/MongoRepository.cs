@@ -8,14 +8,14 @@ namespace Tharga.Toolkit.Test.MongoDB.Local
     class MongoRepository
     {
         [Test]
-        [Ignore]
+        [Ignore("")]
         public void Save_some_entity()
         {
             //------------------------------------------
             // Arrange
             //------------------------------------------
             var someEntity = new SomeEntity {Id = Guid.NewGuid()};
-            
+
             //------------------------------------------
             // Act
             //------------------------------------------
@@ -28,7 +28,7 @@ namespace Tharga.Toolkit.Test.MongoDB.Local
         }
 
         [Test]
-        [Ignore]
+        [Ignore("")]
         public void Get_all_entities()
         {
             //------------------------------------------

@@ -20,9 +20,9 @@ namespace Tharga.Toolkit.LocalStorage.Utility
 
             var assemblies = new List<Assembly> { Assembly ?? Assembly.GetExecutingAssembly() };
 
-            container.RegisterManyForOpenGeneric(typeof(ISavedHandler<>), assemblies);
-            container.RegisterManyForOpenGeneric(typeof(ISyncHandler<>), assemblies);
-            container.RegisterManyForOpenGeneric(typeof(IDeleteHandler<>), assemblies);
+            container.Register(typeof(ISavedHandler<>), assemblies);
+            container.Register(typeof(ISyncHandler<>), assemblies);
+            container.Register(typeof(IDeleteHandler<>), assemblies);
 
             container.Verify();
 

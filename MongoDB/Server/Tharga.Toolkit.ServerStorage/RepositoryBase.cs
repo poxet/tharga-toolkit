@@ -27,7 +27,7 @@ namespace Tharga.Toolkit.ServerStorage
                 var collection = _database.GetCollection<TEntity>();
                 collection.Save(DataItem<TEntity>.Create(realmId, entity), WriteConcern.Acknowledged);
             }
-            catch (WriteConcernException exception)
+            catch (MongoWriteConcernException exception)
             {
                 //TODO: Perhaps replace with a specific exception
                 throw;

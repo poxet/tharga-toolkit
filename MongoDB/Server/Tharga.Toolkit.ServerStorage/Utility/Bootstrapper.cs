@@ -20,10 +20,10 @@ namespace Tharga.Toolkit.ServerStorage.Utility
 
             var assemblies = new List<Assembly> { Assembly, Assembly.GetExecutingAssembly() };
 
-            container.RegisterManyForOpenGeneric(typeof(ICommandHandler<>), assemblies);
-            container.RegisterManyForOpenGeneric(typeof(IMessageHandler<>), assemblies);
-            container.RegisterManyForOpenGeneric(typeof(ICreateSessionHandler<>), assemblies);
-            container.RegisterManyForOpenGeneric(typeof(IEndSessionHandler<>), assemblies);
+            container.Register(typeof(ICommandHandler<>), assemblies);
+            container.Register(typeof(IMessageHandler<>), assemblies);
+            container.Register(typeof(ICreateSessionHandler<>), assemblies);
+            container.Register(typeof(IEndSessionHandler<>), assemblies);
 
             container.Verify();
 

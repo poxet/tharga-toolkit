@@ -73,6 +73,7 @@
     <Compile Include="Command\RootCommand.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="NuGet\CreateNuGetPackage.bat" />
     <None Include="NuGet\Tharga.Toolkit.Console.nuspec" />
   </ItemGroup>
