@@ -7,16 +7,12 @@ namespace Tharga.Toolkit.StorageConsole.Command
     {
         protected Func<TEntity, string> OutputAction;
 
-        protected ActionCommand(IConsole console, string name, string description)
-            : this(console,name,description,null)
+        protected ActionCommand(string name, string description) : base(name, description)
         {
-
         }
 
-        private ActionCommand(IConsole console, string name, string description, string helpText)
-            : base(console, name, description, helpText)
+        protected ActionCommand(string[] names, string description) : base(names, description)
         {
-
         }
 
         public void SetEntityOutput(Func<TEntity, string> outputAction)

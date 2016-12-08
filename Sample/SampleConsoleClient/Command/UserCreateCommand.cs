@@ -22,26 +22,25 @@ namespace SampleConsoleClient.Command
             _realmBusiness = realmBusiness;
         }
 
-        public async override Task<bool> InvokeAsync(string paramList)
+        public override async Task<bool> InvokeAsync(string paramList)
         {
             var index = 0;
             var userName = QueryParam<string>("UserName", GetParam(paramList, index++));
             var password = QueryParam<string>("Password", GetParam(paramList, index++));
-            var realmId = QueryParam<Guid>("Realm", GetParam(paramList, index++), GetRealmList());
+            var realmId = QueryParam("Realm", GetParam(paramList, 0), (await GetRealmList()).ToDictionary(x => x.Key, x => x.Value));
 
             await _userBusiness.SaveAsync(new UserEntity {UserName = userName, PasswordHash = Tools.GetHash(password), RealmId = realmId});
 
             return true;
         }
 
-        private Func<List<KeyValuePair<Guid, string>>> GetRealmList()
+        private async Task<IEnumerable<KeyValuePair<Guid,string>>> GetRealmList()
         {
-            return () =>
-                {
-                    var list = _realmBusiness.GetAllAsync().Result;
-                    return list.Select(x => new KeyValuePair<Guid, string>(x.Id, x.Name.ToString(CultureInfo.InvariantCulture))).ToList();
-                };
+            return await Task.Run(() =>
+            {
+                var list = _realmBusiness.GetAllAsync().Result;
+                return list.Select(x => new KeyValuePair<Guid, string>(x.Id, x.Name.ToString(CultureInfo.InvariantCulture)));
+            });
         }
-
     }
 }

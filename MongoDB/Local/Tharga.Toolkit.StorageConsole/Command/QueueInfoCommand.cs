@@ -9,7 +9,7 @@ namespace Tharga.Toolkit.StorageConsole.Command
         private readonly string _queueName;
 
         internal QueueInfoCommand(IConsole console, string queueName)
-            : base(console, "info","Shows information about the queue.")
+            : base("info","Shows information about the queue.")
         {
             _queueName = queueName;
         }

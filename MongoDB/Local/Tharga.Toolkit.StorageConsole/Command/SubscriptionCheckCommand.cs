@@ -10,7 +10,7 @@ namespace Tharga.Toolkit.StorageConsole.Command
         private readonly SubscriptionHandler _subscriptionHandler;
 
         internal SubscriptionCheckCommand(IConsole console, SubscriptionHandler subscriptionHandler)
-            : base(console, "check", "Check the subscription")
+            : base("check", "Check the subscription")
         {
             _subscriptionHandler = subscriptionHandler;
         }

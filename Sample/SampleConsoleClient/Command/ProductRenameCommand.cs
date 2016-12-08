@@ -20,7 +20,7 @@ namespace SampleConsoleClient.Command
         public override async Task<bool> InvokeAsync(string paramList)
         {
             var index = 0;
-            var id = QueryParam<Guid>("Id", GetParam(paramList, index++), GetItemList());
+            var id = QueryParam("Id", GetParam(paramList, 0), (await GetItemList()).ToDictionary(x => x, x => x.ToString()));
             var item = await _business.GetAsync(id);
             var name = QueryParam<string>("Name", GetParam(paramList, index++), item.Name);
 
@@ -31,13 +31,13 @@ namespace SampleConsoleClient.Command
             return true;
         }
 
-        protected Func<List<KeyValuePair<Guid, string>>> GetItemList()
+        private async Task<IEnumerable<Guid>> GetItemList()
         {
-            return () =>
-                {
-                    var list = _business.GetAllAsync().Result;
-                    return list.Select(x => new KeyValuePair<Guid, string>(x.Id, x.Id.ToString())).ToList();
-                };
+            return await Task.Run(() =>
+            {
+                var list = _business.GetAllAsync().Result;
+                return list.Select(x => x.Id);
+            });
         }
     }
 }

@@ -9,24 +9,20 @@ namespace Tharga.Toolkit.StorageConsole.Command
         private readonly ISubscriptionHandler _subscriptionHandler;
 
         public UserLogoffCommand(IConsole console, ISubscriptionHandler subscriptionHandler)
-            : base(console, "logoff", "Ends the user session")
+            : base("logoff", "Ends the user session")
         {
             _subscriptionHandler = subscriptionHandler;
         }
 
-        public async override Task<bool> InvokeAsync(string paramList)
+        public override async Task<bool> InvokeAsync(string paramList)
         {
             await _subscriptionHandler.EndSession();
             return true;
         }
 
-        protected override string GetCanExecuteFaileMessage()
+        public override bool CanExecute(out string reasonMessage)
         {
-            return string.Format("You need to logon before calling this command.");
-        }
-
-        public override bool CanExecute()
-        {
+            reasonMessage = "You need to logon before calling this command.";
             return _subscriptionHandler.Session != null;
         }
     }

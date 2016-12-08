@@ -52,6 +52,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tharga.Toolkit.Console, Version=1.6.63.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Tharga.Toolkit.Console.1.6.63\lib\net45\Tharga.Toolkit.Console.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\CustomerBusiness.cs" />
@@ -84,10 +88,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Tharga.Toolkit.Console\Tharga.Toolkit.Console.csproj">
-      <Project>{b8bd1635-042f-4eb3-8018-5ceb7302c31b}</Project>
-      <Name>Tharga.Toolkit.Console</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\MongoDB\Server\Tharga.Toolkit.ServerStorage\Tharga.Toolkit.ServerStorage.csproj">
       <Project>{79693e0b-6129-403a-ac16-c58410d7246a}</Project>
       <Name>Tharga.Toolkit.ServerStorage</Name>

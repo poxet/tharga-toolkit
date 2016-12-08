@@ -11,7 +11,7 @@ namespace Tharga.Toolkit.StorageConsole.Command
         private readonly ISubscriptionHandler _subscriptionHandler;
 
         internal ExitCommand(IConsole console, Action stopAction, ISubscriptionHandler subscriptionHandler)
-            : base(console, "exit", "Exit from the console.")
+            : base("exit", "Exit from the console.")
         {
             _stopAction = stopAction;
             _subscriptionHandler = subscriptionHandler;

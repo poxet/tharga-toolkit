@@ -9,12 +9,12 @@ namespace Tharga.Toolkit.StorageConsole.Command
         private readonly ISubscriptionHandler _subscriptionHandler;
 
         public UserLogonCommand(IConsole console, ISubscriptionHandler subscriptionHandler)
-            : base(console, "logon", "Creates a session for the user")
+            : base("logon", "Creates a session for the user")
         {
             _subscriptionHandler = subscriptionHandler;
         }
 
-        public async override Task<bool> InvokeAsync(string paramList)
+        public override async Task<bool> InvokeAsync(string paramList)
         {
             var index = 0;
             var userName = QueryParam<string>("UserName", GetParam(paramList, index++));
@@ -24,13 +24,9 @@ namespace Tharga.Toolkit.StorageConsole.Command
             return true;
         }
 
-        protected override string GetCanExecuteFaileMessage()
+        public override bool CanExecute(out string reasonMessage)
         {
-            return string.Format("You need to logoff before calling this command.");
-        }
-
-        public override bool CanExecute()
-        {
+            reasonMessage = "You need to logoff before calling this command.";
             return _subscriptionHandler.Session == null;
         }
     }

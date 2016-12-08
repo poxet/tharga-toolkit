@@ -6,7 +6,7 @@ namespace Tharga.Toolkit.StorageConsole.Command
     public class UserCommand : ContainerCommandBase
     {
         internal UserCommand(IConsole console, SubscriptionHandler subscriptionHandler)
-            : base(console, "user")
+            : base("user")
         {
             RegisterCommand(new UserLogonCommand(console, subscriptionHandler));
             RegisterCommand(new UserLogoffCommand(console, subscriptionHandler));

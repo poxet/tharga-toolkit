@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit", "Tharga.Toolkit\Tharga.Toolkit.csproj", "{8D840036-39ED-42BE-B980-D571D59B8E47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit.Console", "Tharga.Toolkit.Console\Tharga.Toolkit.Console.csproj", "{B8BD1635-042F-4EB3-8018-5CEB7302C31B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MongoDB", "MongoDB", "{DB5446A1-430C-4A89-AD80-F72362A1FADE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit.ServerStorage", "MongoDB\Server\Tharga.Toolkit.ServerStorage\Tharga.Toolkit.ServerStorage.csproj", "{79693E0B-6129-403A-AC16-C58410D7246A}"
@@ -35,8 +33,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit.Storage", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tharga.Toolkit.Tests", "Tharga.Toolkit.Tests\Tharga.Toolkit.Tests.csproj", "{CED5ED23-03AB-4D86-A6C7-C45B8D271EC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleConsole", "Sample\SampleConsole\SampleConsole.csproj", "{49F7E0AC-7856-415A-B760-300A37BC9889}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,12 +47,6 @@ Global
 		{8D840036-39ED-42BE-B980-D571D59B8E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D840036-39ED-42BE-B980-D571D59B8E47}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8D840036-39ED-42BE-B980-D571D59B8E47}.Release|x86.ActiveCfg = Release|Any CPU
-		{B8BD1635-042F-4EB3-8018-5CEB7302C31B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8BD1635-042F-4EB3-8018-5CEB7302C31B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8BD1635-042F-4EB3-8018-5CEB7302C31B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B8BD1635-042F-4EB3-8018-5CEB7302C31B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8BD1635-042F-4EB3-8018-5CEB7302C31B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8BD1635-042F-4EB3-8018-5CEB7302C31B}.Release|x86.ActiveCfg = Release|Any CPU
 		{79693E0B-6129-403A-AC16-C58410D7246A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{79693E0B-6129-403A-AC16-C58410D7246A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79693E0B-6129-403A-AC16-C58410D7246A}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -119,12 +109,6 @@ Global
 		{CED5ED23-03AB-4D86-A6C7-C45B8D271EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CED5ED23-03AB-4D86-A6C7-C45B8D271EC8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CED5ED23-03AB-4D86-A6C7-C45B8D271EC8}.Release|x86.ActiveCfg = Release|Any CPU
-		{49F7E0AC-7856-415A-B760-300A37BC9889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{49F7E0AC-7856-415A-B760-300A37BC9889}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{49F7E0AC-7856-415A-B760-300A37BC9889}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{49F7E0AC-7856-415A-B760-300A37BC9889}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{49F7E0AC-7856-415A-B760-300A37BC9889}.Release|Any CPU.Build.0 = Release|Any CPU
-		{49F7E0AC-7856-415A-B760-300A37BC9889}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,6 +125,5 @@ Global
 		{187E8D5C-E2DA-48C5-ACD7-F7E37E87ADAE} = {70366613-A75C-46B8-937E-1EA02EC681EE}
 		{D725279F-9FD6-42EF-91D2-FEE3A5A87787} = {70366613-A75C-46B8-937E-1EA02EC681EE}
 		{F9699C87-C488-492D-8F84-01E41EDD9759} = {DB5446A1-430C-4A89-AD80-F72362A1FADE}
-		{49F7E0AC-7856-415A-B760-300A37BC9889} = {70366613-A75C-46B8-937E-1EA02EC681EE}
 	EndGlobalSection
 EndGlobal

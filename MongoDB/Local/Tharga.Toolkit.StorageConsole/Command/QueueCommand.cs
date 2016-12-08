@@ -5,7 +5,7 @@ namespace Tharga.Toolkit.StorageConsole.Command
     public class QueueCommand : ContainerCommandBase
     {
         internal QueueCommand(IConsole console, string queueName)
-            : base(console, "queue")
+            : base("queue")
         {
             RegisterCommand(new QueueInfoCommand(console, queueName));
         }

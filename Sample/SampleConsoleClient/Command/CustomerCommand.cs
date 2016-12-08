@@ -11,9 +11,9 @@ namespace SampleConsoleClient.Command
         {
             SetEntityOutput(OutputAction);
 
-            RegisterCommand(new CustomerCreateCommand(business));
-            RegisterCommand(new CustomerRenameCommand(business));
-            //RegisterCommand(new CustomerMoveCommand(business));
+            //RegisterCommand(new CustomerCreateCommand(business));
+            //RegisterCommand(new CustomerRenameCommand(business));
+            ////RegisterCommand(new CustomerMoveCommand(business));
         }
 
         private string OutputAction(ICustomerEntity arg)

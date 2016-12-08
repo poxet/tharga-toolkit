@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Tharga.Toolkit.Console.Command.Base;
@@ -7,14 +8,14 @@ using Tharga.Toolkit.StorageConsole.Utility;
 
 namespace Tharga.Toolkit.StorageConsole.Command
 {
-    sealed class BusinessListCommand<THandler, TEntity> : ActionCommand<TEntity>
-        where THandler : BusinessBase<TEntity> 
+    internal sealed class BusinessListCommand<THandler, TEntity> : ActionCommand<TEntity>
+        where THandler : BusinessBase<TEntity>
         where TEntity : IEntity
     {
         private readonly THandler _instance;
 
         public BusinessListCommand(IConsole console, THandler instance)
-            : base(console, "list", "Lists all items")
+            : base("list", "Lists all items")
         {
             _instance = instance;
             OutputAction = OutputEntity;
@@ -22,10 +23,11 @@ namespace Tharga.Toolkit.StorageConsole.Command
 
         public override async Task<bool> InvokeAsync(string paramList)
         {
-            foreach (var item in await GetAllAsync())
-                Output(OutputAction.Invoke(item), item.GetColor(), true);                
+            throw new NotImplementedException();
+            //foreach (var item in await GetAllAsync())
+            //    Output(OutputAction.Invoke(item), item.GetColor(), true);
 
-            return true;
+            //return true;
         }
 
         private string OutputEntity(TEntity entity)

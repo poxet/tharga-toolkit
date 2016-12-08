@@ -6,7 +6,7 @@ namespace Tharga.Toolkit.StorageConsole.Command
     public class SubscriptionCommand : ContainerCommandBase
     {
         internal SubscriptionCommand(IConsole console, SubscriptionHandler subscriptionHandler)
-            : base(console, "subscription")
+            : base("subscription")
         {
             RegisterCommand(new SubscriptionStartCommand(console, subscriptionHandler));
             RegisterCommand(new SubscriptionStopCommand(console, subscriptionHandler));

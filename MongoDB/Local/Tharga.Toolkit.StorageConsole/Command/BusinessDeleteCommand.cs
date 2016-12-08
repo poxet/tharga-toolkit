@@ -8,8 +8,8 @@ using Tharga.Toolkit.LocalStorage.Interface;
 
 namespace Tharga.Toolkit.StorageConsole.Command
 {
-    class BusinessDeleteCommand<THandler, TEntity> : ActionCommandBase
-        where THandler : BusinessBase<TEntity> 
+    internal class BusinessDeleteCommand<THandler, TEntity> : ActionCommandBase
+        where THandler : BusinessBase<TEntity>
         where TEntity : IEntity
     {
         private readonly THandler _instance;
@@ -22,25 +22,19 @@ namespace Tharga.Toolkit.StorageConsole.Command
 
         public override async Task<bool> InvokeAsync(string paramList)
         {
-            var id = QueryParam<Guid>("Id", GetParam(paramList, 0), GetItemList());
+            var id = QueryParam("Id", GetParam(paramList, 0), (await GetListAsync()).ToDictionary(x => x, x => x.ToString()));
 
             await _instance.DeleteAsync(id);
             return true;
         }
 
-        //private List<KeyValuePair<string, Guid>> GetItemList()
-        //{
-        //    var list = _instance.GetAllAsync().Result;
-        //    return list.Select(x => new KeyValuePair<string, Guid>(x.Id.ToString(), x.Id)).ToList();
-        //}
-
-        private Func<List<KeyValuePair<Guid, string>>> GetItemList()
+        private async Task<IEnumerable<Guid>> GetListAsync()
         {
-            return () =>
-                {
-                    var list = _instance.GetAllAsync().Result;
-                    return list.Select(x => new KeyValuePair<Guid, string>(x.Id, x.Id.ToString())).ToList();
-                };
+            return await Task.Run(() =>
+            {
+                var list = _instance.GetAllAsync().Result;
+                return list.Select(x => x.Id);
+            });
         }
     }
 }

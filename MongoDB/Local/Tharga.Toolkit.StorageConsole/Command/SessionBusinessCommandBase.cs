@@ -28,7 +28,8 @@ namespace Tharga.Toolkit.StorageConsole.Command
 
         public override bool CanExecute()
         {
-            return SubCommands.Any(x => x.CanExecute());
+            string responseMessage;
+            return SubCommands.Any(x => x.CanExecute(out responseMessage));
         }
     }
 }
