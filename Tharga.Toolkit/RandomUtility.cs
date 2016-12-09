@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace Tharga.Toolkit.Test
+namespace Tharga.Toolkit
 {
     public static class RandomUtility
     {

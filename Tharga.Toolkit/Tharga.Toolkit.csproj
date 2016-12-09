@@ -60,17 +60,18 @@
     <Compile Include="Compare\Diff.cs" />
     <Compile Include="Compare\DifferentTypes.cs" />
     <Compile Include="Compare\IDiff.cs" />
+    <Compile Include="Registry\AutoStart.cs" />
+    <Compile Include="Registry\ELocalLevel.cs" />
+    <Compile Include="Registry\LevelConverter.cs" />
+    <Compile Include="Registry\RegistryHKey.cs" />
     <Compile Include="SafeObservableCollection.cs" />
     <Compile Include="UnitTestDetector.cs" />
     <Compile Include="RandomUtility.cs" />
     <Compile Include="Environment.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="ObjectMap.cs" />
-    <Compile Include="Registry.cs" />
-    <Compile Include="Settings.cs" />
-    <Compile Include="StopWatch.cs" />
+    <Compile Include="Registry\Setting.cs" />
+    <Compile Include="Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StopWatchProcessBase.cs" />
     <Compile Include="UserInformation.cs" />
   </ItemGroup>
   <ItemGroup>

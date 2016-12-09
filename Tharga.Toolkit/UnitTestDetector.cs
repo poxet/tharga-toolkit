@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Tharga.Toolkit.Test
+namespace Tharga.Toolkit
 {
     public static class UnitTestDetector
     {

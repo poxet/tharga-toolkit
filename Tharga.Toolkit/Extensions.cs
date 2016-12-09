@@ -33,7 +33,7 @@ namespace Tharga.Toolkit
         {
             var list = values.ToList();
             if (!list.Any()) return default(T);
-            var index = Test.RandomUtility.GetRandomInt(0, list.Count());
+            var index = RandomUtility.GetRandomInt(0, list.Count());
             return list[index];
         }
 
