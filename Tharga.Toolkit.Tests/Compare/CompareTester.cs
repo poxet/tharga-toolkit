@@ -209,8 +209,6 @@ namespace HM.Order.OrderService.Business.Tests.UnitTests.CompareExtensions
             Assert.AreEqual(1, diffs.First().Index);
         }
 
-        //ARR
-
         [Test]
         public void When_comparing_a_dictionary_with_itself()
         {

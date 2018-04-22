@@ -55,6 +55,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assignment\AssignmentExtensions.cs" />
     <Compile Include="Checksum.cs" />
     <Compile Include="Compare\CompareExtensions.cs" />
     <Compile Include="Compare\Diff.cs" />

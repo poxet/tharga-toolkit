@@ -62,6 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AaaTest.cs" />
+    <Compile Include="Assignment\DefaultAssignmentTest.cs" />
+    <Compile Include="Assignment\NewAssignmentTest.cs" />
     <Compile Include="Compare\CompareTester.cs" />
     <Compile Include="Compare\OtherSomeSimpleClass.cs" />
     <Compile Include="Compare\SomeCircleClass.cs" />
