@@ -102,10 +102,10 @@ namespace Tharga.Toolkit
         public static T AssignRandomValues<T>(this T entity)
         {
             var properties = typeof(T).GetProperties().Where(x => x.Name != "ExtensionData").ToList();
-            
+
             if (properties.Count == 0)
                 properties = typeof(T).GetProperties(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly).Where(x => x.Name != "ExtensionData").ToList();
-            
+
             if (properties.Count == 0)
                 properties = entity.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly).Where(x => x.Name != "ExtensionData").ToList();
 

@@ -63,7 +63,10 @@
   <ItemGroup>
     <Compile Include="AaaTest.cs" />
     <Compile Include="Assignment\DefaultAssignmentTest.cs" />
-    <Compile Include="Assignment\NewAssignmentTest.cs" />
+    <Compile Include="Assignment\IntAssignmentTest.cs" />
+    <Compile Include="Assignment\SomeAssignmentTest.cs" />
+    <Compile Include="Assignment\EmptyNewAssignmentTest.cs" />
+    <Compile Include="Assignment\SomeSimpleClassAssignmentTest.cs" />
     <Compile Include="Compare\CompareTester.cs" />
     <Compile Include="Compare\OtherSomeSimpleClass.cs" />
     <Compile Include="Compare\SomeCircleClass.cs" />
