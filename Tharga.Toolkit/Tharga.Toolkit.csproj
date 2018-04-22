@@ -57,9 +57,11 @@
   <ItemGroup>
     <Compile Include="Assignment\AssignmentExtensions.cs" />
     <Compile Include="Checksum.cs" />
+    <Compile Include="Assignment\AssignmentInfo.cs" />
     <Compile Include="Compare\CompareExtensions.cs" />
     <Compile Include="Compare\Diff.cs" />
     <Compile Include="Compare\DifferentTypes.cs" />
+    <Compile Include="Assignment\IAssignmentInfo.cs" />
     <Compile Include="Compare\IDiff.cs" />
     <Compile Include="Registry\AutoStart.cs" />
     <Compile Include="Registry\ELocalLevel.cs" />

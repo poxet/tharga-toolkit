@@ -37,8 +37,8 @@ namespace Tharga.Toolkit
                 var tp1 = s1.GetType();
                 var tp2 = s2.GetType();
 
-                var item1Name = parentObject1Name != null ? string.Format("{0}.{1}", parentObject1Name, s1.GetType().Name) : s1.GetType().Name;
-                var item2Name = parentObject1Name != null ? string.Format("{0}.{1}", parentObject2Name, s2.GetType().Name) : s2.GetType().Name;
+                var item1Name = parentObject1Name != null ? $"{parentObject1Name}.{s1.GetType().Name}" : s1.GetType().Name;
+                var item2Name = parentObject1Name != null ? $"{parentObject2Name}.{s2.GetType().Name}" : s2.GetType().Name;
 
                 if (tp1 != tp2 && (compareMode & CompareMode.IgnoreType) != CompareMode.IgnoreType)
                     yield return new DifferentTypes(item1Name, tp1, tp2, null);

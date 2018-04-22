@@ -1,16 +1,15 @@
-﻿using HM.Order.OrderService.Business.Tests.UnitTests.CompareExtensions;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace Tharga.Toolkit.Tests.Assignment
 {
     [TestFixture]
-    public class SomeSimpleClassAssignmentTest
+    public class StringArrayAssignmentTest
     {
         [Test]
         public void Default_assignment()
         {
             //Arrange
-            var obj = default(SomeSimpleClass);
+            var obj = default(string[]);
 
             //Act
             var isAssigned = obj.IsAssigned();
@@ -23,7 +22,7 @@ namespace Tharga.Toolkit.Tests.Assignment
         public void Explicit_default_assignment()
         {
             //Arrange
-            var obj = (SomeSimpleClass) null;
+            var obj = (string[])null;
 
             //Act
             var isAssigned = obj.IsAssigned();
@@ -33,10 +32,10 @@ namespace Tharga.Toolkit.Tests.Assignment
         }
 
         [Test]
-        public void Explicit_non_default_assignment()
+        public void Explicit_non_default_assignment_with_content()
         {
             //Arrange
-            var obj = new SomeSimpleClass {Data = "ABC123"};
+            var obj = new []{ "ABC123" };
 
             //Act
             var isAssigned = obj.IsAssigned();
@@ -46,10 +45,23 @@ namespace Tharga.Toolkit.Tests.Assignment
         }
 
         [Test]
-        public void Explicit_non_default_assignment_with_default_properties()
+        public void Explicit_non_default_assignment_empty()
         {
             //Arrange
-            var obj = new SomeSimpleClass {  };
+            var obj = new string[] { };
+
+            //Act
+            var isAssigned = obj.IsAssigned();
+
+            //Assert
+            Assert.IsTrue(isAssigned);
+        }
+
+        [Test]
+        public void Explicit_non_default_assignment_with_default_content()
+        {
+            //Arrange
+            var obj = new [] {default(string)};
 
             //Act
             var isAssigned = obj.IsAssigned();

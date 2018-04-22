@@ -1,16 +1,16 @@
-﻿using HM.Order.OrderService.Business.Tests.UnitTests.CompareExtensions;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace Tharga.Toolkit.Tests.Assignment
 {
     [TestFixture]
-    public class SomeSimpleClassAssignmentTest
+    public class StringListAssignmentTest
     {
         [Test]
         public void Default_assignment()
         {
             //Arrange
-            var obj = default(SomeSimpleClass);
+            var obj = default(List<string>);
 
             //Act
             var isAssigned = obj.IsAssigned();
@@ -23,7 +23,7 @@ namespace Tharga.Toolkit.Tests.Assignment
         public void Explicit_default_assignment()
         {
             //Arrange
-            var obj = (SomeSimpleClass) null;
+            var obj = (List<string>)null;
 
             //Act
             var isAssigned = obj.IsAssigned();
@@ -33,10 +33,10 @@ namespace Tharga.Toolkit.Tests.Assignment
         }
 
         [Test]
-        public void Explicit_non_default_assignment()
+        public void Explicit_non_default_assignment_with_content()
         {
             //Arrange
-            var obj = new SomeSimpleClass {Data = "ABC123"};
+            var obj = new List<string> { "ABC123" };
 
             //Act
             var isAssigned = obj.IsAssigned();
@@ -46,10 +46,23 @@ namespace Tharga.Toolkit.Tests.Assignment
         }
 
         [Test]
-        public void Explicit_non_default_assignment_with_default_properties()
+        public void Explicit_non_default_assignment_empty()
         {
             //Arrange
-            var obj = new SomeSimpleClass {  };
+            var obj = new List<string>[] { };
+
+            //Act
+            var isAssigned = obj.IsAssigned();
+
+            //Assert
+            Assert.IsTrue(isAssigned);
+        }
+
+        [Test]
+        public void Explicit_non_default_assignment_with_default_content()
+        {
+            //Arrange
+            var obj = new List<string> { default(string) };
 
             //Act
             var isAssigned = obj.IsAssigned();

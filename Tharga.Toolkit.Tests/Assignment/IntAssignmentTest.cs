@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using Tharga.Toolkit.Assignment;
 
 namespace Tharga.Toolkit.Tests.Assignment
 {
@@ -11,6 +10,19 @@ namespace Tharga.Toolkit.Tests.Assignment
         {
             //Arrange
             var obj = default(int);
+
+            //Act
+            var isAssigned = obj.IsAssigned();
+
+            //Assert
+            Assert.IsFalse(isAssigned);
+        }
+
+        [Test]
+        public void Default_nullable_assignment()
+        {
+            //Arrange
+            var obj = default(int?);
 
             //Act
             var isAssigned = obj.IsAssigned();
@@ -37,6 +49,19 @@ namespace Tharga.Toolkit.Tests.Assignment
         {
             //Arrange
             var obj = 1;
+
+            //Act
+            var isAssigned = obj.IsAssigned();
+
+            //Assert
+            Assert.IsTrue(isAssigned);
+        }
+
+        [Test]
+        public void Explicit_nullable_non_default_assignment()
+        {
+            //Arrange
+            var obj = (int?)1;
 
             //Act
             var isAssigned = obj.IsAssigned();

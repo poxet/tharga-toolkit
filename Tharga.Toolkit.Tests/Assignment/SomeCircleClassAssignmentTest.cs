@@ -4,13 +4,13 @@ using NUnit.Framework;
 namespace Tharga.Toolkit.Tests.Assignment
 {
     [TestFixture]
-    public class SomeSimpleClassAssignmentTest
+    public class SomeCircleClassAssignmentTest
     {
         [Test]
         public void Default_assignment()
         {
             //Arrange
-            var obj = default(SomeSimpleClass);
+            var obj = default(SomeCircleClass);
 
             //Act
             var isAssigned = obj.IsAssigned();
@@ -23,7 +23,7 @@ namespace Tharga.Toolkit.Tests.Assignment
         public void Explicit_default_assignment()
         {
             //Arrange
-            var obj = (SomeSimpleClass) null;
+            var obj = (SomeCircleClass)null;
 
             //Act
             var isAssigned = obj.IsAssigned();
@@ -36,7 +36,8 @@ namespace Tharga.Toolkit.Tests.Assignment
         public void Explicit_non_default_assignment()
         {
             //Arrange
-            var obj = new SomeSimpleClass {Data = "ABC123"};
+            var obj = new SomeCircleClass { Data = "ABC123" };
+            obj.Ref = obj;
 
             //Act
             var isAssigned = obj.IsAssigned();
@@ -49,7 +50,7 @@ namespace Tharga.Toolkit.Tests.Assignment
         public void Explicit_non_default_assignment_with_default_properties()
         {
             //Arrange
-            var obj = new SomeSimpleClass {  };
+            var obj = new SomeCircleClass { };
 
             //Act
             var isAssigned = obj.IsAssigned();
