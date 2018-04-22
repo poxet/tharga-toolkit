@@ -7,13 +7,19 @@ namespace Tharga.Toolkit
 {
     public static class AssignmentExtensions
     {
+        private const int MaxRecursiveLevel = 20;
+
         public static AssignmentInfo IsAssigned<T>(this T item, IEnumerable<string> exclude = null)
         {
-            return CheckAssignment(null, item, exclude?.ToArray() ?? new string[] { }, new List<object>());
+            return CheckAssignment(null, item, exclude?.ToArray() ?? new string[] { }, new List<object>(), 0);
         }
 
-        private static AssignmentInfo CheckAssignment<T>(string parentObject1Name, T item, string[] exclude, List<object> visited)
+        private static AssignmentInfo CheckAssignment<T>(string parentObject1Name, T item, string[] exclude, List<object> visited, int level)
         {
+            if (level >= MaxRecursiveLevel)
+                return new AssignmentInfo(true, $"Max recursive level {MaxRecursiveLevel} reached.");
+            level++;
+
             if (visited.Any(x => ReferenceEquals(x, item)))
                 return new AssignmentInfo(true);
 
@@ -39,7 +45,7 @@ namespace Tharga.Toolkit
                 var enumr1 = (item as IEnumerable).GetEnumerator();
                 while (enumr1.MoveNext())
                 {
-                    var assignmentInfo = CheckAssignment(item1Name, enumr1.Current, exclude, visited);
+                    var assignmentInfo = CheckAssignment(item1Name, enumr1.Current, exclude, visited, level);
                     if (assignmentInfo == false)
                         return assignmentInfo;
                 }
@@ -55,7 +61,7 @@ namespace Tharga.Toolkit
                 foreach (var prop in props)
                 {
                     var propValue = prop.GetValue(item);
-                    var assignmentInfo = CheckAssignment(item1Name, propValue, exclude, visited);
+                    var assignmentInfo = CheckAssignment(item1Name, propValue, exclude, visited, level);
                     if (assignmentInfo == false)
                         return assignmentInfo;
                 }
