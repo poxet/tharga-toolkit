@@ -25,7 +25,7 @@ namespace Tharga.Toolkit
 
             visited.Add(item);
 
-            var defaultTypeValue = default(T);
+            var defaultTypeValue = GetDefault(item?.GetType() ?? typeof(T));
 
             var name = item?.GetType().Name ?? "?";
             var item1Name = parentObject1Name != null ? $"{parentObject1Name}.{name}" : name;
@@ -68,6 +68,15 @@ namespace Tharga.Toolkit
             }
 
             return new AssignmentInfo(true);
+        }
+
+        public static object GetDefault(Type type)
+        {
+            if (type.IsValueType)
+            {
+                return Activator.CreateInstance(type);
+            }
+            return null;
         }
     }
 }

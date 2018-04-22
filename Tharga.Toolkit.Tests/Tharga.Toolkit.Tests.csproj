@@ -66,6 +66,7 @@
     <Compile Include="Assignment\DecimalAssignmentTest.cs" />
     <Compile Include="Assignment\DictionaryAssignmentTest.cs" />
     <Compile Include="Assignment\DoubleAssignmentTest.cs" />
+    <Compile Include="Assignment\FloatAssignmentTest.cs" />
     <Compile Include="Assignment\GuidAssignmentTest.cs" />
     <Compile Include="Assignment\IntAssignmentTest.cs" />
     <Compile Include="Assignment\ObjectAssignmentTest.cs" />
