@@ -18,6 +18,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeTestStruct'."));
         }
 
         [Test]
@@ -31,6 +32,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeTestStruct?'."));
         }
 
         [Test]
@@ -60,6 +62,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsTrue(isAssigned, isAssigned.Message);
+            Assert.That(isAssigned.Message, Is.Null);
         }
 
         [Test]
@@ -73,6 +76,47 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeTestStruct'."));
+        }
+
+        [Test]
+        public void Explicit_non_default_assignment_with_default_properties_with_missing_property()
+        {
+            //Arrange
+            var obj = new SomeTestStruct
+            {
+                StringMember = "A",
+                StringProperty = null,
+                StringListMember = new List<string> { "A1" },
+                StructListProperty = new List<SomeTestStruct> { }
+            };
+
+            //Act
+            var isAssigned = obj.IsAssigned();
+
+            //Assert
+            Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeTestStruct.StringProperty'."));
+        }
+
+        [Test]
+        public void Explicit_non_default_assignment_with_default_properties_with_missing_member()
+        {
+            //Arrange
+            var obj = new SomeTestStruct
+            {
+                StringMember = null,
+                StringProperty = "A",
+                StringListMember = new List<string> { "A1" },
+                StructListProperty = new List<SomeTestStruct> { }
+            };
+
+            //Act
+            var isAssigned = obj.IsAssigned();
+
+            //Assert
+            Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeTestStruct.StringMember'."));
         }
     }
 }

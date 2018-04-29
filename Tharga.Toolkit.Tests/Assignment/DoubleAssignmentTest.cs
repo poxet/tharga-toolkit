@@ -16,6 +16,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'Double'."));
         }
 
         [Test]
@@ -29,6 +30,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'Double?'."));
         }
 
         [Test]
@@ -42,6 +44,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'Double'."));
         }
 
         [Test]
@@ -54,6 +57,7 @@ namespace Tharga.Toolkit.Tests.Assignment
             var isAssigned = obj.IsAssigned();
 
             //Assert
+            Assert.That(isAssigned.Message, Is.Null);
             Assert.IsTrue(isAssigned);
         }
 
@@ -68,6 +72,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsTrue(isAssigned);
+            Assert.That(isAssigned.Message, Is.Null);
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'Dictionary`2'."));
         }
 
         [Test]
@@ -30,6 +31,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'Dictionary`2'."));
         }
 
         [Test]
@@ -43,6 +45,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsTrue(isAssigned);
+            Assert.That(isAssigned.Message, Is.Null);
         }
 
         [Test]
@@ -56,6 +59,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsTrue(isAssigned);
+            Assert.That(isAssigned.Message, Is.Null);
         }
 
         [Test]
@@ -69,6 +73,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'Dictionary`2[0]'."));
         }
 
         [Test]
@@ -82,6 +87,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'Dictionary`2[0].Value'."));
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeTestClass'."));
         }
 
         [Test]
@@ -30,6 +31,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeTestClass'."));
         }
 
         [Test]
@@ -39,10 +41,11 @@ namespace Tharga.Toolkit.Tests.Assignment
             var obj = SomeTestClass.Create();
 
             //Act
-            var isAssigned = obj.IsAssigned(new[] {"SomeTestClass.List`1.SomeTestClass", "SomeTestClass.Dictionary`2.KeyValuePair`2.SomeTestClass" });
+            var isAssigned = obj.IsAssigned(new[] { "SomeTestClass.ClassListProperty[0].ClassListProperty" });
 
             //Assert
             Assert.IsTrue(isAssigned, isAssigned.Message);
+            Assert.That(isAssigned.Message, Is.Null);
         }
 
         [Test]
@@ -56,6 +59,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeTestClass.IntReadProperty'."));
         }
     }
 }

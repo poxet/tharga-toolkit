@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -11,7 +11,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Tharga.Toolkit.Tests</RootNamespace>
     <AssemblyName>Tharga.Toolkit.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <SccProjectName>
@@ -46,11 +46,15 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoFixture, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoFixture.4.2.1\lib\net452\AutoFixture.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -66,12 +70,15 @@
     <Compile Include="Assignment\DecimalAssignmentTest.cs" />
     <Compile Include="Assignment\DictionaryAssignmentTest.cs" />
     <Compile Include="Assignment\DoubleAssignmentTest.cs" />
+    <Compile Include="Assignment\EnumAssignmentTest.cs" />
     <Compile Include="Assignment\FloatAssignmentTest.cs" />
     <Compile Include="Assignment\GuidAssignmentTest.cs" />
     <Compile Include="Assignment\IntAssignmentTest.cs" />
     <Compile Include="Assignment\ObjectAssignmentTest.cs" />
     <Compile Include="Assignment\SomeCircleClassAssignmentTest.cs" />
     <Compile Include="Assignment\SomeClassAssignmentTest.cs" />
+    <Compile Include="Assignment\TimeSpanAssignmentTest.cs" />
+    <Compile Include="Mocking\SomeEnum.cs" />
     <Compile Include="Assignment\SomeSimpleClassAssignmentTest.cs" />
     <Compile Include="Assignment\SomeTestClassAssignmentTest.cs" />
     <Compile Include="Assignment\SomeTestStructAssignmentTest.cs" />
@@ -79,14 +86,15 @@
     <Compile Include="Assignment\StringAssignmentTest.cs" />
     <Compile Include="Assignment\StringListAssignmentTest.cs" />
     <Compile Include="Compare\CompareTester.cs" />
-    <Compile Include="Compare\OtherSomeSimpleClass.cs" />
-    <Compile Include="Compare\SomeCircleClass.cs" />
-    <Compile Include="Compare\SomeClass.cs" />
-    <Compile Include="Compare\SomeOtherSimpleClass.cs" />
-    <Compile Include="Compare\SomeSimpleClass.cs" />
-    <Compile Include="Compare\SomeTestClass.cs" />
-    <Compile Include="Compare\SomeTestStruct.cs" />
+    <Compile Include="Mocking\OtherSomeSimpleClass.cs" />
+    <Compile Include="Mocking\SomeCircleClass.cs" />
+    <Compile Include="Mocking\SomeClass.cs" />
+    <Compile Include="Mocking\SomeOtherSimpleClass.cs" />
+    <Compile Include="Mocking\SomeSimpleClass.cs" />
+    <Compile Include="Mocking\SomeTestClass.cs" />
+    <Compile Include="Mocking\SomeTestStruct.cs" />
     <Compile Include="ExtensionsTest.cs" />
+    <Compile Include="Mocking\SomeParentEntity.cs" />
     <Compile Include="MongoDB\Local\MongoRepository.cs" />
     <Compile Include="Mocking\SomeEntity.cs" />
     <Compile Include="ObjectMapTest.cs" />

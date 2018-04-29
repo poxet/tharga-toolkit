@@ -1,78 +1,77 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace Tharga.Toolkit.Tests.Assignment
 {
     [TestFixture]
-    public class GuidAssignmentTest
+    public class EnumAssignmentTest
     {
         [Test]
         public void Default_assignment()
         {
             //Arrange
-            var obj = default(Guid);
+            var obj = default(SomeEnum);
 
             //Act
             var isAssigned = obj.IsAssigned();
 
             //Assert
-            Assert.IsFalse(isAssigned);
-            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'Guid'."));
+            Assert.IsFalse(isAssigned, isAssigned.Message);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeEnum'."));
         }
 
         [Test]
         public void Default_nullable_assignment()
         {
             //Arrange
-            var obj = default(Guid?);
+            var obj = default(SomeEnum?);
 
             //Act
             var isAssigned = obj.IsAssigned();
 
             //Assert
-            Assert.IsFalse(isAssigned);
-            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'Guid?'."));
+            Assert.IsFalse(isAssigned, isAssigned.Message);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeEnum?'."));
         }
 
         [Test]
         public void Explicit_default_null_assignment()
         {
             //Arrange
-            var obj = (Guid?)null;
+            var obj = (SomeEnum?)null;
 
             //Act
             var isAssigned = obj.IsAssigned();
 
             //Assert
-            Assert.IsFalse(isAssigned);
-            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'Guid?'."));
+            Assert.IsFalse(isAssigned, isAssigned.Message);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeEnum?'."));
         }
 
         [Test]
         public void Explicit_default_assignment()
         {
             //Arrange
-            var obj = Guid.Empty;
+            var obj = SomeEnum.A;
 
             //Act
             var isAssigned = obj.IsAssigned();
 
             //Assert
-            Assert.IsFalse(isAssigned);
-            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'Guid'."));
+            Assert.IsFalse(isAssigned, isAssigned.Message);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeEnum'."));
         }
 
         [Test]
         public void Explicit_non_default_assignment()
         {
             //Arrange
-            var obj = Guid.NewGuid();
+            var obj = SomeEnum.B;
 
             //Act
             var isAssigned = obj.IsAssigned();
 
             //Assert
-            Assert.IsTrue(isAssigned);
+            Assert.IsTrue(isAssigned, isAssigned.Message);
             Assert.That(isAssigned.Message, Is.Null);
         }
     }

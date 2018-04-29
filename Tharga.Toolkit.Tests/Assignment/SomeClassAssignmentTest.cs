@@ -17,6 +17,7 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeClass'."));
         }
 
         [Test]
@@ -30,45 +31,21 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeClass'."));
         }
 
         [Test]
         public void Explicit_non_default_assignment()
         {
             //Arrange
-            var obj = new SomeClass { Data1 = "ABC123", Data2 = 1, Data3 = 2 };
+            var obj = new SomeClass { Data1 = "ABC123", Data2 = 1, Data3 = 1.2F };
 
             //Act
             var isAssigned = obj.IsAssigned();
 
             //Assert
-            Assert.IsTrue(isAssigned);
-        }
-
-        [Test]
-        public void Explicit_non_default_assignment_Partial()
-        {
-            //Arrange
-            var obj = new SomeClass { Data1 = "ABC123" };
-
-            //Act
-            var isAssigned = obj.IsAssigned();
-
-            //Assert
-            Assert.IsFalse(isAssigned);
-        }
-
-        [Test]
-        public void Explicit_non_default_assignment_Partial_Two()
-        {
-            //Arrange
-            var obj = new SomeClass { Data1 = "ABC123", Data2 = 1 };
-
-            //Act
-            var isAssigned = obj.IsAssigned();
-
-            //Assert
-            Assert.IsFalse(isAssigned);
+            Assert.IsTrue(isAssigned, isAssigned.Message);
+            Assert.That(isAssigned.Message, Is.Null);
         }
 
         [Test]
@@ -82,6 +59,21 @@ namespace Tharga.Toolkit.Tests.Assignment
 
             //Assert
             Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeClass.Data1'."));
+        }
+
+        [Test]
+        public void Explicit_non_default_assignment_with_some_default_properties()
+        {
+            //Arrange
+            var obj = new SomeClass { Data1 = "ABC123" };
+
+            //Act
+            var isAssigned = obj.IsAssigned();
+
+            //Assert
+            Assert.IsFalse(isAssigned);
+            Assert.That(isAssigned.Message, Is.EqualTo("No assignment for 'SomeClass.Data2'."));
         }
     }
 }
